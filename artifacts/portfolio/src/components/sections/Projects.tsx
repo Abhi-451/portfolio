@@ -89,7 +89,7 @@ export default function Projects() {
                 </div>
 
                 <div className="flex gap-4 mt-auto">
-                  <a href="https://local-lance-api-server-uojw.vercel.app" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors">
+                  <a href="#" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors">
                     View Live <FiExternalLink />
                   </a>
                   <a href="#" className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors border border-white/5">
