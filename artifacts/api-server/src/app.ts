@@ -30,6 +30,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to LocalFlunce API Server!" });
+});
+
 app.use("/api", router);
 
 export default app;
