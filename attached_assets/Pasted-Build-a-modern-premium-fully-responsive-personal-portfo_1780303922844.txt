@@ -1,0 +1,248 @@
+Build a modern, premium, fully responsive personal portfolio website for an AI Generalist and Full Stack Developer named “Rayampalli Abhishek”.
+
+The portfolio should feel futuristic, clean, professional, and recruiter-friendly with smooth animations, premium UI/UX, glassmorphism effects, gradient highlights, hover interactions, dark mode aesthetics, and mobile responsiveness.
+
+Tech Stack:
+
+* Next.js or React
+* Tailwind CSS
+* Framer Motion for animations
+* TypeScript preferred
+* Responsive for all devices
+* Optimized for performance and SEO
+* Deploy-ready structure
+
+The portfolio should contain the following sections:
+
+1. HERO SECTION
+
+* Full name: Rayampalli Abhishek
+* Title: AI Generalist | Full Stack Developer
+* Short intro:
+  “Building AI-powered automation systems, intelligent web applications, and scalable digital experiences.”
+* Add animated typing effect for:
+
+  * Prompt Engineer
+  * AI Automation Developer
+  * Full Stack Developer
+  * RAG Pipeline Builder
+* Add CTA buttons:
+
+  * Download Resume
+  * Contact Me
+  * View Projects
+* Add social icons:
+
+  * GitHub
+  * LinkedIn
+  * Email
+
+2. ABOUT SECTION
+   Create a strong professional summary highlighting:
+
+* AI Engineering
+* Prompt Engineering
+* RAG Pipelines
+* AI Agent Design
+* n8n Automation
+* Full Stack Development
+* Flutter
+* Node.js
+* PostgreSQL
+* SEO Optimization
+
+Mention that the developer focuses on transforming business ideas into intelligent production-ready systems using AI and scalable technologies.
+
+3. SKILLS SECTION
+   Create modern animated skill cards with categories:
+
+AI & Generative AI
+
+* Prompt Engineering
+* LLM Orchestration
+* AI Agents
+* RAG Pipelines
+* n8n Automation
+
+Frontend
+
+* Flutter
+* React
+* Tailwind CSS
+* Responsive UI/UX
+* Figma
+
+Backend
+
+* Node.js
+* REST APIs
+* PostgreSQL
+* SQL
+
+Programming
+
+* Python
+* JavaScript
+* Dart
+* TypeScript
+
+SEO & Optimization
+
+* Metadata Optimization
+* On-page SEO
+* Keyword Research
+
+4. EXPERIENCE SECTION
+   Add timeline-based experience cards.
+
+Company:
+SCUTS — Full Stack Developer Intern
+
+Responsibilities:
+
+* Built and optimized production-ready features for a salon booking platform
+* Developed AI automation workflows using n8n and LLM-based agents
+* Built scalable REST APIs using Node.js
+* Implemented prompt engineering workflows for AI content pipelines
+* Improved SEO visibility through keyword optimization and metadata refinement
+
+Add subtle animated transitions while scrolling.
+
+5. FEATURED PROJECTS SECTION
+   This should be the most visually impressive section.
+
+Project 1 (MOST IMPORTANT — HIGHLIGHT THIS)
+LOCALFLUNCE
+
+Create this as the hero featured project with large project card and glowing border effects.
+
+Description:
+“LocalFlunce is a real-world influencer discovery platform that connects startup founders with local influencers. The platform acts as a bridge between businesses and creators, helping founders find suitable influencers for promotions and collaborations.”
+
+IMPORTANT:
+Strongly highlight that:
+
+* It is a REAL deployed project
+* Successfully deployed using Vercel
+* Full-stack production-ready application
+* Solves a real business problem
+* Includes scalable architecture
+
+Add badges:
+
+* Production Ready
+* Deployed on Vercel
+* Real World Project
+* Full Stack App
+
+Include sections:
+
+* Problem Solved
+* Tech Stack Used
+* Deployment
+* Features
+* Business Impact
+
+Suggested features to display:
+
+* Influencer search
+* Founder dashboard
+* Collaboration system
+* Responsive UI
+* Authentication system
+
+Add animated mockup or modern project showcase layout.
+
+Project 2:
+AI Automation Agent for Tech News & Code Review
+
+* AI-powered news summarization
+* Telegram delivery system
+* Automated code review workflow
+* Built with n8n + LLMs
+
+Project 3:
+AI Document Query System — RAG Pipeline
+
+* Semantic search
+* Vector indexing
+* Conversational AI
+* Context-aware responses
+
+Project 4:
+Luxury Shopping Application (Luxtry)
+
+* JWT authentication
+* Cart management
+* Checkout system
+* Responsive e-commerce UI
+
+Project 5:
+AI-Driven SEO Optimization — SCUTS
+
+* Keyword analysis
+* Metadata optimization
+* Organic traffic improvements
+
+6. CERTIFICATIONS SECTION
+   Display modern certificate cards:
+
+* AI & Machine Learning Workshop — IIT Hyderabad
+* Python Programming — IBM
+* Dart Programming — IBM
+* Prompt Engineering Fundamentals
+
+7. EDUCATION SECTION
+
+* B.Tech in Computer Science
+* BEST Innovation University
+* 2022 – 2026
+
+8. CONTACT SECTION
+   Add:
+
+* Email
+* Phone number
+* Bengaluru, India
+
+Include:
+
+* Contact form
+* Animated send button
+* “Let’s Build Something Intelligent Together” heading
+
+9. EXTRA REQUIREMENTS
+
+* Add smooth scrolling navigation
+* Add loading animation
+* Add particle or animated background
+* Add cursor glow effect
+* Add scroll progress indicator
+* Add modern footer
+* Add SEO meta tags
+* Add favicon
+* Use premium fonts
+* Use clean spacing and professional alignment
+
+10. COLOR THEME
+    Use:
+
+* Dark premium theme
+* Neon blue / purple gradients
+* Glassmorphism cards
+* Soft shadows
+* Modern AI-inspired aesthetic
+
+11. FINAL OUTPUT
+    Generate:
+
+* Complete frontend code
+* Folder structure
+* Reusable components
+* Clean code architecture
+* Deployment instructions for Vercel
+* README.md
+
+The portfolio should look like a top-tier AI engineer portfolio that can impress recruiters from companies like OpenAI, Google, Microsoft, and startups.
+
+Also make sure the LocalFlunce project becomes the centerpiece of the portfolio because it is a real deployed startup-oriented application showcasing both technical and business problem-solving skills.
