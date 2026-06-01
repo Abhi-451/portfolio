@@ -1,3 +1,2 @@
-import app from "../src/app.js";
-
-export default app;
+// @ts-nocheck
+export { default } from "../dist/app.mjs";
