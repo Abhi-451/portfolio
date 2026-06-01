@@ -90,7 +90,12 @@ export default function Hero() {
           <Button size="lg" variant="outline" className="rounded-none h-12 px-8 border-white/20 hover:bg-white/5">
             Download Resume
           </Button>
-          <Button size="lg" variant="ghost" className="rounded-none h-12 px-8 text-indigo-400 hover:text-indigo-300 hover:bg-transparent">
+          <Button 
+            size="lg" 
+            variant="ghost" 
+            className="rounded-none h-12 px-8 text-indigo-400 hover:text-indigo-300 hover:bg-transparent"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Contact Me
           </Button>
         </motion.div>
@@ -107,7 +112,7 @@ export default function Hero() {
           <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-indigo-500/50 hover:bg-indigo-500/10">
             <FiLinkedin className="w-5 h-5" />
           </a>
-          <a href="mailto:abhishek@example.com" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-indigo-500/50 hover:bg-indigo-500/10">
+          <a href="mailto:abhishekrayampalli@gmail.com" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-indigo-500/50 hover:bg-indigo-500/10">
             <FiMail className="w-5 h-5" />
           </a>
         </motion.div>
