@@ -26,26 +26,30 @@ export default function Contact() {
         <div className="grid md:grid-cols-5 gap-12 bg-glass border border-white/5 rounded-3xl p-8 md:p-12">
           
           {/* Contact Info */}
-          <div className="md:col-span-2 space-y-8">
-            <h3 className="text-2xl font-bold text-white mb-6">Connection Details</h3>
+          <div className="space-y-8">
+            <h3 className="text-2xl font-display font-medium text-white mb-6">Contact Information</h3>
             
-            <div className="flex items-center gap-4 text-muted-foreground hover:text-white transition-colors">
-              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-indigo-400">
+            <div className="flex items-start gap-4">
+              <div className="mt-1 w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                 <FiMail className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-sm font-mono text-white/50 mb-1">Email</p>
-                <a href="mailto:abhishekrayampalli@gmail.com" className="font-medium">abhishekrayampalli@gmail.com</a>
+                <p className="text-sm text-muted-foreground mb-1">Email</p>
+                <a href="mailto:abhishekrayampalli@gmail.com" className="text-lg text-white hover:text-indigo-400 transition-colors">
+                  abhishekrayampalli@gmail.com
+                </a>
               </div>
             </div>
-            
-            <div className="flex items-center gap-4 text-muted-foreground hover:text-white transition-colors">
-              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-indigo-400">
+
+            <div className="flex items-start gap-4">
+              <div className="mt-1 w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                 <FiPhone className="w-5 h-5" />
               </div>
               <div>
-                <p className="text-sm font-mono text-white/50 mb-1">Phone</p>
-                <a href="tel:8074622656" className="font-medium">+91 80746 22656</a>
+                <p className="text-sm text-muted-foreground mb-1">Phone</p>
+                <a href="tel:8074622656" className="text-lg text-white hover:text-indigo-400 transition-colors">
+                  8074622656
+                </a>
               </div>
             </div>
             
