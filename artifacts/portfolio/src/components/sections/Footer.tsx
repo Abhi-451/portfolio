@@ -8,7 +8,7 @@ export default function Footer() {
         
         <div className="text-center md:text-left">
           <p className="text-sm font-mono text-muted-foreground">
-            Designed & Built by <span className="text-indigo-400 font-display">Rayampalli Abhishek</span>
+            Designed & Built by <span className="text-cyan-400 font-display">Rayampalli Abhishek</span>
           </p>
           <p className="text-xs text-white/30 mt-1">
             © {new Date().getFullYear()} All rights reserved.
@@ -22,13 +22,13 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="https://github.com" className="text-muted-foreground hover:text-indigo-400 transition-colors">
+          <a href="https://github.com" className="text-muted-foreground hover:text-cyan-400 transition-colors">
             <FiGithub className="w-5 h-5" />
           </a>
-          <a href="https://linkedin.com" className="text-muted-foreground hover:text-indigo-400 transition-colors">
+          <a href="https://linkedin.com" className="text-muted-foreground hover:text-cyan-400 transition-colors">
             <FiLinkedin className="w-5 h-5" />
           </a>
-          <a href="mailto:abhishek@example.com" className="text-muted-foreground hover:text-indigo-400 transition-colors">
+          <a href="mailto:abhishek@example.com" className="text-muted-foreground hover:text-cyan-400 transition-colors">
             <FiMail className="w-5 h-5" />
           </a>
         </div>

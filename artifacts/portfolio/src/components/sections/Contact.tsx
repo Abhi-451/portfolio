@@ -14,7 +14,7 @@ export default function Contact() {
         className="max-w-5xl mx-auto"
       >
         <div className="text-center mb-16">
-          <p className="text-indigo-400 font-mono mb-4">07. What's Next?</p>
+          <p className="text-cyan-400 font-mono mb-4">07. What's Next?</p>
           <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
             Let's Build Something <span className="text-gradient">Intelligent</span> Together
           </h2>
@@ -30,31 +30,31 @@ export default function Contact() {
             <h3 className="text-2xl font-display font-medium text-white mb-6">Contact Information</h3>
             
             <div className="flex items-start gap-4">
-              <div className="mt-1 w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+              <div className="mt-1 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
                 <FiMail className="w-5 h-5" />
               </div>
               <div className="flex-1">
                 <p className="text-sm text-muted-foreground mb-1">Email</p>
-                <a href="mailto:abhishekrayampalli@gmail.com" className="text-lg text-white hover:text-indigo-400 transition-colors break-all">
+                <a href="mailto:abhishekrayampalli@gmail.com" className="text-lg text-white hover:text-cyan-400 transition-colors break-all">
                   abhishekrayampalli@gmail.com
                 </a>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="mt-1 w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+              <div className="mt-1 w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
                 <FiPhone className="w-5 h-5" />
               </div>
               <div>
                 <p className="text-sm text-muted-foreground mb-1">Phone</p>
-                <a href="tel:8074622656" className="text-lg text-white hover:text-indigo-400 transition-colors">
+                <a href="tel:8074622656" className="text-lg text-white hover:text-cyan-400 transition-colors">
                   8074622656
                 </a>
               </div>
             </div>
             
             <div className="flex items-center gap-4 text-muted-foreground hover:text-white transition-colors">
-              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-indigo-400">
+              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-cyan-400">
                 <FiMapPin className="w-5 h-5" />
               </div>
               <div>
@@ -72,7 +72,7 @@ export default function Contact() {
                   <label className="text-sm font-mono text-muted-foreground">Name</label>
                   <input 
                     type="text" 
-                    className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                    className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
                     placeholder="John Doe"
                   />
                 </div>
@@ -80,7 +80,7 @@ export default function Contact() {
                   <label className="text-sm font-mono text-muted-foreground">Email</label>
                   <input 
                     type="email" 
-                    className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+                    className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -90,14 +90,14 @@ export default function Contact() {
                 <label className="text-sm font-mono text-muted-foreground">Message</label>
                 <textarea 
                   rows={5}
-                  className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
+                  className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none"
                   placeholder="How can I help you?"
                 ></textarea>
               </div>
 
               <Button 
                 type="submit" 
-                className="w-full bg-indigo-600 hover:bg-indigo-500 text-white h-12 rounded-lg mt-4 group"
+                className="w-full bg-fuchsia-600 hover:bg-cyan-500 text-white h-12 rounded-lg mt-4 group"
               >
                 Send Message
                 <FiSend className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

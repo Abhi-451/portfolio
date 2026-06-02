@@ -18,14 +18,14 @@ export default function Education() {
         <div className="max-w-3xl mx-auto">
           <motion.div 
             whileHover={{ scale: 1.02 }}
-            className="bg-glass border border-white/5 hover:border-indigo-500/30 rounded-3xl p-8 md:p-12 relative overflow-hidden transition-all duration-300"
+            className="bg-glass border border-white/5 hover:border-cyan-500/30 rounded-3xl p-8 md:p-12 relative overflow-hidden transition-all duration-300"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-bl-full blur-2xl"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-bl-full blur-2xl"></div>
             
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">B.Tech in Computer Science</h3>
-                <p className="text-xl text-indigo-400">BEST Innovation University</p>
+                <p className="text-xl text-cyan-400">BEST Innovation University</p>
               </div>
               <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-full font-mono text-sm text-muted-foreground inline-block w-fit">
                 2022 – 2026

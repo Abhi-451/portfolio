@@ -43,7 +43,7 @@ export default function Home() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <div className="w-16 h-16 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <h1 className="text-2xl font-display font-bold text-foreground text-gradient">Rayampalli Abhishek</h1>
           <p className="text-muted-foreground tracking-widest uppercase text-sm mt-2">Initializing...</p>
         </motion.div>
@@ -52,12 +52,12 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen bg-transparent text-foreground selection:bg-indigo-500/30">
+    <div className="relative min-h-screen bg-transparent text-foreground selection:bg-cyan-500/30">
       <Background3D />
       
       {/* Scroll Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-400 origin-left z-50"
         style={{ scaleX: scrollYProgress }}
       />
 

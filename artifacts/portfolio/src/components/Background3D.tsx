@@ -33,7 +33,7 @@ function Scene() {
 
 export default function Background3D() {
   return (
-    <div className="fixed inset-0 w-full h-full -z-50 pointer-events-none" style={{ background: 'linear-gradient(to bottom, #050510, #000000)' }}>
+    <div className="fixed inset-0 w-full h-full -z-50 pointer-events-none" style={{ background: 'linear-gradient(to bottom, #0a001a, #000000)' }}>
       <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
         <Scene />
       </Canvas>

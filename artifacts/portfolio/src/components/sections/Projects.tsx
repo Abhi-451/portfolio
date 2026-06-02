@@ -48,20 +48,20 @@ export default function Projects() {
           className="relative rounded-3xl mb-24 group"
         >
           {/* Animated Border Glow */}
-          <div className="absolute -inset-[2px] bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 rounded-3xl opacity-50 blur-sm group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+          <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-400 rounded-3xl opacity-50 blur-sm group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
           
           <div className="relative bg-background rounded-3xl p-1 overflow-hidden h-full">
             <div className="bg-glass rounded-[22px] h-full flex flex-col lg:flex-row border border-white/10 relative z-10">
               
               {/* Project Image/Visual placeholder */}
               <div className="lg:w-1/2 min-h-[300px] bg-black/40 relative overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-white/10">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/40 via-background to-background"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-fuchsia-900/40 via-background to-background"></div>
                 <div className="text-center z-10 p-8">
-                  <h3 className="text-4xl md:text-6xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 mb-4">
+                  <h3 className="text-4xl md:text-6xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-400 mb-4">
                     LocalFlunce
                   </h3>
                   <div className="flex flex-wrap justify-center gap-2">
-                    <span className="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs font-mono rounded-full border border-indigo-500/30">Production Ready</span>
+                    <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-mono rounded-full border border-cyan-500/30">Production Ready</span>
                     <span className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-mono rounded-full border border-purple-500/30">Deployed on Vercel</span>
                     <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-mono rounded-full border border-cyan-500/30">Real World Project</span>
                   </div>
@@ -80,16 +80,16 @@ export default function Projects() {
 
                 <div className="mb-8">
                   <h5 className="text-sm font-bold text-white uppercase tracking-wider mb-3">Key Features</h5>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-indigo-200/80">
-                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Influencer Search</li>
-                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Founder Dashboard</li>
-                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Collaboration System</li>
-                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span> Secure Authentication</li>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-cyan-200/80">
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span> Influencer Search</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span> Founder Dashboard</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span> Collaboration System</li>
+                    <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span> Secure Authentication</li>
                   </ul>
                 </div>
 
                 <div className="flex gap-4 mt-auto">
-                  <a href="https://local-lance-api-server-uojw.vercel.app" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium transition-colors">
+                  <a href="https://local-lance-api-server-uojw.vercel.app" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-fuchsia-600 hover:bg-cyan-500 text-white rounded-lg font-medium transition-colors">
                     View Live <FiExternalLink />
                   </a>
                   <a href="#" className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors border border-white/5">
@@ -114,7 +114,7 @@ export default function Projects() {
               className="bg-glass border border-white/5 rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col group"
             >
               <div className="flex justify-between items-start mb-6">
-                <div className="w-12 h-12 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 group-hover:text-indigo-300 group-hover:bg-indigo-500/20 transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:text-cyan-300 group-hover:bg-cyan-500/20 transition-colors">
                   <FiGithub className="w-6 h-6" />
                 </div>
                 <a href="#" className="text-muted-foreground hover:text-white transition-colors">
@@ -122,7 +122,7 @@ export default function Projects() {
                 </a>
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">
+              <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
                 {project.title}
               </h3>
               
@@ -132,7 +132,7 @@ export default function Projects() {
               
               <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-white/5">
                 {project.tags.map((tag, i) => (
-                  <span key={i} className="text-xs font-mono text-indigo-400/80">
+                  <span key={i} className="text-xs font-mono text-cyan-400/80">
                     {tag}
                   </span>
                 ))}

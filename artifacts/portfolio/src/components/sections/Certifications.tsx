@@ -47,9 +47,9 @@ export default function Certifications() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="bg-glass border border-white/5 rounded-2xl p-6 group hover:border-indigo-500/30 transition-colors"
+              className="bg-glass border border-white/5 rounded-2xl p-6 group hover:border-cyan-500/30 transition-colors"
             >
-              <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform">
                 <FiAward className="w-5 h-5" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2 leading-tight">{cert.title}</h3>

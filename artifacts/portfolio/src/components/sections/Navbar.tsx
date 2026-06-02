@@ -45,7 +45,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         <a href="#" className="text-xl font-display font-bold text-white relative group">
           R.A
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all group-hover:w-full"></span>
+          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-cyan-400 transition-all group-hover:w-full"></span>
         </a>
         
         <nav className="hidden md:flex items-center space-x-8">
@@ -71,7 +71,7 @@ export default function Navbar() {
             e.preventDefault();
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="hidden md:inline-flex px-4 py-2 rounded-md bg-white/5 border border-white/10 text-sm font-medium text-white hover:bg-white/10 transition-all hover:border-indigo-500/50"
+          className="hidden md:inline-flex px-4 py-2 rounded-md bg-white/5 border border-white/10 text-sm font-medium text-white hover:bg-white/10 transition-all hover:border-cyan-500/50"
         >
           Let's Talk
         </button>

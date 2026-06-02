@@ -68,9 +68,9 @@ export default function Skills() {
             <motion.div 
               key={idx} 
               variants={itemVariants}
-              className="bg-glass border border-white/5 rounded-2xl p-8 hover:border-indigo-500/30 transition-colors group relative overflow-hidden"
+              className="bg-glass border border-white/5 rounded-2xl p-8 hover:border-cyan-500/30 transition-colors group relative overflow-hidden"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               
               <h3 className="text-xl font-display font-semibold text-white mb-6 flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
@@ -81,7 +81,7 @@ export default function Skills() {
                 {skillGroup.items.map((item, i) => (
                   <span 
                     key={i} 
-                    className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-sm text-muted-foreground group-hover:text-indigo-200 transition-colors"
+                    className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-md text-sm text-muted-foreground group-hover:text-cyan-200 transition-colors"
                   >
                     {item}
                   </span>

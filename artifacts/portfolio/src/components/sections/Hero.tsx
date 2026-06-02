@@ -28,7 +28,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <p className="text-indigo-400 font-mono text-sm md:text-base mb-4 tracking-wider uppercase">
+          <p className="text-cyan-400 font-mono text-sm md:text-base mb-4 tracking-wider uppercase">
             System Online. Welcome to my workspace.
           </p>
         </motion.div>
@@ -93,7 +93,7 @@ export default function Hero() {
           <Button 
             size="lg" 
             variant="ghost" 
-            className="rounded-none h-12 px-8 text-indigo-400 hover:text-indigo-300 hover:bg-transparent"
+            className="rounded-none h-12 px-8 text-cyan-400 hover:text-cyan-300 hover:bg-transparent"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Contact Me
@@ -106,13 +106,13 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="mt-16 flex gap-6"
         >
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-indigo-500/50 hover:bg-indigo-500/10">
+          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-cyan-500/50 hover:bg-cyan-500/10">
             <FiGithub className="w-5 h-5" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-indigo-500/50 hover:bg-indigo-500/10">
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-cyan-500/50 hover:bg-cyan-500/10">
             <FiLinkedin className="w-5 h-5" />
           </a>
-          <a href="mailto:abhishekrayampalli@gmail.com" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-indigo-500/50 hover:bg-indigo-500/10">
+          <a href="mailto:abhishekrayampalli@gmail.com" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-cyan-500/50 hover:bg-cyan-500/10">
             <FiMail className="w-5 h-5" />
           </a>
         </motion.div>

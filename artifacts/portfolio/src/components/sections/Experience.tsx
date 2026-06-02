@@ -30,21 +30,21 @@ export default function Experience() {
             <div className="hidden md:flex w-1/2 justify-end pr-12">
               <div className="text-right">
                 <h4 className="text-xl font-display font-bold text-white">SCUTS</h4>
-                <p className="text-indigo-400 font-mono mt-1">Full Stack Developer Intern</p>
+                <p className="text-cyan-400 font-mono mt-1">Full Stack Developer Intern</p>
               </div>
             </div>
             
             {/* Timeline Dot */}
-            <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-indigo-500 border-4 border-background -translate-x-1/2 md:translate-x-[-50%] z-10 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+            <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-cyan-500 border-4 border-background -translate-x-1/2 md:translate-x-[-50%] z-10 shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
 
             <div className="w-full md:w-1/2 pl-8 md:pl-12">
               <div className="md:hidden mb-4">
                 <h4 className="text-xl font-display font-bold text-white">SCUTS</h4>
-                <p className="text-indigo-400 font-mono mt-1">Full Stack Developer Intern</p>
+                <p className="text-cyan-400 font-mono mt-1">Full Stack Developer Intern</p>
               </div>
               
               <div className="bg-glass border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 
                 <ul className="space-y-3 text-muted-foreground relative z-10">
                   <li className="flex items-start">
