@@ -10,7 +10,7 @@ import Certifications from '@/components/sections/Certifications';
 import Education from '@/components/sections/Education';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/sections/Footer';
-import ParticleBackground from '@/components/ui/particle-background';
+import Background3D from '@/components/Background3D';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -52,8 +52,8 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground selection:bg-indigo-500/30">
-      <ParticleBackground />
+    <div className="relative min-h-screen bg-transparent text-foreground selection:bg-indigo-500/30">
+      <Background3D />
       
       {/* Scroll Progress Bar */}
       <motion.div 

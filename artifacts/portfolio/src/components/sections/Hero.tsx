@@ -1,8 +1,7 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
-const Spline = React.lazy(() => import('@splinetool/react-spline'));
 const titles = [
   "Prompt Engineer",
   "AI Automation Developer",
@@ -51,7 +50,7 @@ export default function Hero() {
           className="h-12 md:h-16 mb-6 flex items-center"
         >
           <h2 className="text-2xl md:text-4xl font-medium text-muted-foreground flex items-center gap-3">
-            I am a{' '}
+            I am a {' '}
             <span className="text-gradient font-display relative">
               <AnimatePresence mode="wait">
                 <motion.span
@@ -118,19 +117,6 @@ export default function Hero() {
           </a>
         </motion.div>
         </div>
-
-        {/* Right Column - 3D Spline Embed */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="hidden lg:block h-[500px] xl:h-[600px] w-full relative"
-        >
-          <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl -z-10 animate-pulse" />
-          <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-indigo-400 font-mono text-sm animate-pulse">Loading 3D Interface...</div>}>
-            <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
-          </Suspense>
-        </motion.div>
       </div>
     </section>
   );
