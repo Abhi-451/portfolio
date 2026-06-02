@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FiCpu, FiCode, FiTrendingUp, FiLayers } from 'react-icons/fi';
 
 export default function About() {
   return (
@@ -11,11 +12,11 @@ export default function About() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-12 flex items-center">
-          <span className="text-gradient">01.</span> <span className="ml-4 text-white">About System</span>
+          <span className="text-gradient">01.</span> <span className="ml-4 text-white">About Me</span>
           <div className="h-px bg-white/10 flex-grow ml-8 hidden md:block"></div>
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
               I am an AI Generalist and Full Stack Developer dedicated to transforming business ideas into intelligent, production-ready systems. I don't just write code; I architect solutions that leverage the latest in AI and scalable technologies.
@@ -31,29 +32,37 @@ export default function About() {
             </p>
           </div>
 
-          <div className="relative">
-            <div className="aspect-square max-w-md mx-auto rounded-none   p-6 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="font-mono text-sm text-cyan-300 mb-4 border-b border-white/10 pb-2">
-                system_specs.json
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <div className="space-y-4 group">
+              <div className="w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
+                <FiCpu className="w-6 h-6" />
               </div>
-              
-              <pre className="font-mono text-sm text-muted-foreground overflow-x-auto">
-                <code className="text-green-400">"status"</code>: <code className="text-yellow-300">"Operational"</code>,<br/>
-                <code className="text-green-400">"focus"</code>: <code className="text-yellow-300">"AI Integration"</code>,<br/>
-                <code className="text-green-400">"core_competencies"</code>: [<br/>
-                &nbsp;&nbsp;<code className="text-yellow-300">"AI Engineering"</code>,<br/>
-                &nbsp;&nbsp;<code className="text-yellow-300">"Prompt Engineering"</code>,<br/>
-                &nbsp;&nbsp;<code className="text-yellow-300">"RAG Pipelines"</code>,<br/>
-                &nbsp;&nbsp;<code className="text-yellow-300">"Full Stack Dev"</code>,<br/>
-                &nbsp;&nbsp;<code className="text-yellow-300">"Workflow Automation"</code><br/>
-                ],<br/>
-                <code className="text-green-400">"current_mission"</code>: <code className="text-yellow-300">"Building intelligent systems"</code>
-              </pre>
-              
-              <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-cyan-500/50 m-4"></div>
-              <div className="absolute top-0 left-0 w-16 h-16 border-t border-l border-cyan-500/50 m-4"></div>
+              <h3 className="text-white font-display font-medium text-xl">AI Integration</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Building intelligent agents, RAG pipelines, and prompt systems.</p>
+            </div>
+            
+            <div className="space-y-4 group">
+              <div className="w-14 h-14 rounded-full bg-fuchsia-500/10 flex items-center justify-center text-fuchsia-400 group-hover:scale-110 group-hover:bg-fuchsia-500/20 transition-all duration-300">
+                <FiCode className="w-6 h-6" />
+              </div>
+              <h3 className="text-white font-display font-medium text-xl">Full Stack</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">React, Flutter, Node.js, and scalable web architectures.</p>
+            </div>
+
+            <div className="space-y-4 group">
+              <div className="w-14 h-14 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-400 group-hover:scale-110 group-hover:bg-pink-500/20 transition-all duration-300">
+                <FiTrendingUp className="w-6 h-6" />
+              </div>
+              <h3 className="text-white font-display font-medium text-xl">SEO Optimization</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Driving organic growth and maximizing search visibility.</p>
+            </div>
+
+            <div className="space-y-4 group">
+              <div className="w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-300">
+                <FiLayers className="w-6 h-6" />
+              </div>
+              <h3 className="text-white font-display font-medium text-xl">Automation</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">Streamlining operations with n8n and custom business logic.</p>
             </div>
           </div>
         </div>
