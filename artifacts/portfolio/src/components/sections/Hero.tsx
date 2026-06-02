@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
-
+const Spline = React.lazy(() => import('@splinetool/react-spline'));
 const titles = [
   "Prompt Engineer",
   "AI Automation Developer",
@@ -21,8 +21,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen w-full flex items-center pt-20 px-6 md:px-12 container mx-auto">
-      <div className="max-w-4xl mx-auto md:mx-0">
+    <section id="hero" className="min-h-screen w-full flex items-center pt-20 px-6 md:px-12 container mx-auto relative overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
+        <div className="max-w-2xl mx-auto lg:mx-0">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -115,6 +116,20 @@ export default function Hero() {
           <a href="mailto:abhishekrayampalli@gmail.com" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-indigo-500/50 hover:bg-indigo-500/10">
             <FiMail className="w-5 h-5" />
           </a>
+        </motion.div>
+        </div>
+
+        {/* Right Column - 3D Spline Embed */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="hidden lg:block h-[500px] xl:h-[600px] w-full relative"
+        >
+          <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-full blur-3xl -z-10 animate-pulse" />
+          <Suspense fallback={<div className="w-full h-full flex items-center justify-center text-indigo-400 font-mono text-sm animate-pulse">Loading 3D Interface...</div>}>
+            <Spline scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+          </Suspense>
         </motion.div>
       </div>
     </section>
