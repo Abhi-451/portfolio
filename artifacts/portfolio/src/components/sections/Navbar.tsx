@@ -71,7 +71,7 @@ export default function Navbar() {
             e.preventDefault();
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="hidden md:inline-flex px-4 py-2 rounded-md bg-white/5 border border-white/10 text-sm font-medium text-white hover:bg-white/10 transition-all hover:border-cyan-500/50"
+          className="hidden md:inline-flex px-4 py-2 rounded-md bg-white/5  text-sm font-medium text-white hover:bg-white/10 transition-all hover:border-cyan-500/50"
         >
           Let's Talk
         </button>

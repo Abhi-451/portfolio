@@ -45,13 +45,13 @@ export default function Projects() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="relative rounded-3xl mb-24 group"
+          className="relative  mb-24 group"
         >
           {/* Animated Border Glow */}
-          <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-400 rounded-3xl opacity-50 blur-sm group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+          <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-purple-500 to-cyan-400  opacity-50 blur-sm group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
           
-          <div className="relative bg-background rounded-3xl p-1 overflow-hidden h-full">
-            <div className="bg-glass rounded-[22px] h-full flex flex-col lg:flex-row border border-white/10 relative z-10">
+          <div className="relative bg-background  p-1 overflow-hidden h-full">
+            <div className="  h-full flex flex-col lg:flex-row  relative z-10">
               
               {/* Project Image/Visual placeholder */}
               <div className="lg:w-1/2 min-h-[300px] bg-black/40 relative overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-white/10">
@@ -72,7 +72,7 @@ export default function Projects() {
               <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                 <h4 className="text-2xl font-bold text-white mb-4">Influencer Discovery Platform</h4>
                 
-                <div className="bg-white/5 border border-white/5 rounded-xl p-6 mb-6">
+                <div className="bg-white/5  rounded-xl p-6 mb-6">
                   <p className="text-muted-foreground leading-relaxed">
                     LocalFlunce is a real-world influencer discovery platform that connects startup founders with local influencers. The platform acts as a bridge between businesses and creators, helping founders find suitable influencers for promotions and collaborations.
                   </p>
@@ -92,7 +92,7 @@ export default function Projects() {
                   <a href="https://local-lance-api-server-uojw.vercel.app" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-6 py-3 bg-fuchsia-600 hover:bg-cyan-500 text-white rounded-lg font-medium transition-colors">
                     View Live <FiExternalLink />
                   </a>
-                  <a href="#" className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors border border-white/5">
+                  <a href="#" className="flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors ">
                     Source <FiGithub />
                   </a>
                 </div>
@@ -111,7 +111,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-glass border border-white/5 rounded-2xl p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col group"
+              className="   p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col group"
             >
               <div className="flex justify-between items-start mb-6">
                 <div className="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:text-cyan-300 group-hover:bg-cyan-500/20 transition-colors">

@@ -43,7 +43,7 @@ export default function Experience() {
                 <p className="text-cyan-400 font-mono mt-1">Full Stack Developer Intern</p>
               </div>
               
-              <div className="bg-glass border border-white/5 rounded-2xl p-6 relative overflow-hidden group">
+              <div className="   p-6 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 
                 <ul className="space-y-3 text-muted-foreground relative z-10">

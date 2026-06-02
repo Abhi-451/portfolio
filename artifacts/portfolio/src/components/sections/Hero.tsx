@@ -106,13 +106,13 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="mt-16 flex gap-6"
         >
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-cyan-500/50 hover:bg-cyan-500/10">
+          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full  hover:border-cyan-500/50 hover:bg-cyan-500/10">
             <FiGithub className="w-5 h-5" />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-cyan-500/50 hover:bg-cyan-500/10">
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full  hover:border-cyan-500/50 hover:bg-cyan-500/10">
             <FiLinkedin className="w-5 h-5" />
           </a>
-          <a href="mailto:abhishekrayampalli@gmail.com" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full border border-white/5 hover:border-cyan-500/50 hover:bg-cyan-500/10">
+          <a href="mailto:abhishekrayampalli@gmail.com" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full  hover:border-cyan-500/50 hover:bg-cyan-500/10">
             <FiMail className="w-5 h-5" />
           </a>
         </motion.div>

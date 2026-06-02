@@ -32,7 +32,7 @@ export default function About() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square max-w-md mx-auto rounded-none border border-white/10 bg-glass p-6 relative overflow-hidden group">
+            <div className="aspect-square max-w-md mx-auto rounded-none   p-6 relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="font-mono text-sm text-cyan-300 mb-4 border-b border-white/10 pb-2">

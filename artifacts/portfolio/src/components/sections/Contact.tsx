@@ -23,7 +23,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-5 gap-12 bg-glass border border-white/5 rounded-3xl p-8 md:p-12">
+        <div className="grid md:grid-cols-5 gap-12    p-8 md:p-12">
           
           {/* Contact Info */}
           <div className="md:col-span-2 space-y-8">
@@ -54,7 +54,7 @@ export default function Contact() {
             </div>
             
             <div className="flex items-center gap-4 text-muted-foreground hover:text-white transition-colors">
-              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 text-cyan-400">
+              <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center  text-cyan-400">
                 <FiMapPin className="w-5 h-5" />
               </div>
               <div>
@@ -72,7 +72,7 @@ export default function Contact() {
                   <label className="text-sm font-mono text-muted-foreground">Name</label>
                   <input 
                     type="text" 
-                    className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                    className="w-full bg-transparent  rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
                     placeholder="John Doe"
                   />
                 </div>
@@ -80,7 +80,7 @@ export default function Contact() {
                   <label className="text-sm font-mono text-muted-foreground">Email</label>
                   <input 
                     type="email" 
-                    className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
+                    className="w-full bg-transparent  rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -90,7 +90,7 @@ export default function Contact() {
                 <label className="text-sm font-mono text-muted-foreground">Message</label>
                 <textarea 
                   rows={5}
-                  className="w-full bg-background/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none"
+                  className="w-full bg-transparent  rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all resize-none"
                   placeholder="How can I help you?"
                 ></textarea>
               </div>
