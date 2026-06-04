@@ -117,6 +117,30 @@ export default function Hero() {
           </a>
         </motion.div>
         </div>
+
+        {/* Right Side Image (Iron Man Avatar) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+          className="hidden lg:flex justify-center items-center relative z-10 h-full"
+        >
+          <motion.div
+            animate={{ y: [-10, 10, -10] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="relative"
+          >
+            {/* The Image (Looking for /ironman.jpg in public folder) */}
+            <img 
+              src="/ironman.jpg" 
+              alt="Iron Man Armor" 
+              className="max-h-[600px] w-auto object-contain drop-shadow-[0_0_30px_rgba(220,38,38,0.5)]"
+            />
+            {/* Ambient Red Glow behind image */}
+            <div className="absolute inset-0 bg-red-500/20 blur-[100px] -z-10 rounded-full mix-blend-screen" />
+          </motion.div>
+        </motion.div>
+
       </div>
     </section>
   );
