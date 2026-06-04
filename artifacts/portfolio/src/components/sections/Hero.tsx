@@ -21,8 +21,8 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen w-full flex items-center pt-20 px-6 md:px-12 container mx-auto relative overflow-hidden">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full relative z-10">
-        <div className="max-w-2xl mx-auto lg:mx-0">
+      <div className="flex flex-col items-center justify-center text-center w-full relative z-10">
+        <div className="max-w-3xl mx-auto flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,11 +47,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="h-12 md:h-16 mb-6 flex items-center"
+          className="h-12 md:h-16 mb-6 flex items-center justify-center w-full"
         >
-          <h2 className="text-2xl md:text-4xl font-medium text-muted-foreground flex items-center gap-3">
+          <h2 className="text-2xl md:text-4xl font-medium text-muted-foreground flex items-center justify-center gap-3 w-full">
             I am a {' '}
-            <span className="text-gradient font-display relative">
+            <span className="text-gradient font-display relative inline-flex justify-center min-w-[280px]">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={currentTitleIndex}
@@ -59,12 +59,12 @@ export default function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 whitespace-nowrap"
+                  className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-center"
                 >
                   {titles[currentTitleIndex]}
                 </motion.span>
               </AnimatePresence>
-              <span className="invisible">{titles[0]}</span> {/* For width reservation */}
+              <span className="invisible">{titles[1]}</span> {/* For width reservation */}
             </span>
           </h2>
         </motion.div>
@@ -82,7 +82,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="flex flex-wrap gap-4 items-center"
+          className="flex flex-wrap justify-center gap-4 items-center"
         >
           <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-none h-12 px-8 font-medium">
             View Projects
@@ -104,7 +104,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="mt-16 flex gap-6"
+          className="mt-16 flex justify-center gap-6"
         >
           <a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors p-2 bg-white/5 rounded-full  hover:border-cyan-500/50 hover:bg-cyan-500/10">
             <FiGithub className="w-5 h-5" />
@@ -117,30 +117,6 @@ export default function Hero() {
           </a>
         </motion.div>
         </div>
-
-        {/* Right Side Image (Iron Man Avatar) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-          className="hidden lg:flex justify-center items-center relative z-10 h-full"
-        >
-          <motion.div
-            animate={{ y: [-10, 10, -10] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="relative"
-          >
-            {/* The Image (Looking for /ironman.jpg in public folder) */}
-            <img 
-              src="/ironman.jpg" 
-              alt="Iron Man Armor" 
-              className="max-h-[600px] w-auto object-contain drop-shadow-[0_0_30px_rgba(220,38,38,0.5)]"
-            />
-            {/* Ambient Red Glow behind image */}
-            <div className="absolute inset-0 bg-red-500/20 blur-[100px] -z-10 rounded-full mix-blend-screen" />
-          </motion.div>
-        </motion.div>
-
       </div>
     </section>
   );

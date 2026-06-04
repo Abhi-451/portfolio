@@ -97,7 +97,7 @@ export default function Contact() {
 
               <Button 
                 type="submit" 
-                className="w-full bg-amber-600 hover:bg-cyan-500 text-white h-12 rounded-lg mt-4 group"
+                className="w-full bg-pink-600 hover:bg-cyan-500 text-white h-12 rounded-lg mt-4 group"
               >
                 Send Message
                 <FiSend className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
