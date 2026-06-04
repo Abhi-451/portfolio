@@ -42,7 +42,7 @@ export default function About() {
             </div>
             
             <div className="space-y-4 group">
-              <div className="w-14 h-14 rounded-full bg-fuchsia-500/10 flex items-center justify-center text-fuchsia-400 group-hover:scale-110 group-hover:bg-fuchsia-500/20 transition-all duration-300">
+              <div className="w-14 h-14 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300">
                 <FiCode className="w-6 h-6" />
               </div>
               <h3 className="text-white font-display font-medium text-xl">Full Stack</h3>
@@ -50,7 +50,7 @@ export default function About() {
             </div>
 
             <div className="space-y-4 group">
-              <div className="w-14 h-14 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-400 group-hover:scale-110 group-hover:bg-pink-500/20 transition-all duration-300">
+              <div className="w-14 h-14 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-500/20 transition-all duration-300">
                 <FiTrendingUp className="w-6 h-6" />
               </div>
               <h3 className="text-white font-display font-medium text-xl">SEO Optimization</h3>
