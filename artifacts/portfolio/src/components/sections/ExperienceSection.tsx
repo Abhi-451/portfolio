@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiFeather, FiCode, FiBox, FiCpu, FiTrendingUp, FiCheckCircle, FiArrowRight } from 'react-icons/fi';
+import { FiFeather, FiCode, FiBox, FiCpu, FiTrendingUp, FiCheckCircle, FiArrowRight, FiActivity } from 'react-icons/fi';
 
 const experienceStages = [
   {
@@ -83,36 +83,51 @@ export default function ExperienceSection() {
       {/* Editorial Timeline Container */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         
-        {/* Left Column: Stage Selectors */}
-        <div className="lg:col-span-5 flex flex-col gap-3">
+        {/* Left Column: Interactive Stage Selectors with Momentum Physics */}
+        <div className="lg:col-span-5 flex flex-col gap-3.5">
           {experienceStages.map((step, idx) => {
             const isActive = activeStage === idx;
             return (
               <motion.div
                 key={step.id}
                 onClick={() => setActiveStage(idx)}
-                whileHover={{ x: 6 }}
-                transition={{ type: "spring", stiffness: 250, damping: 20 }}
-                className={`cursor-pointer p-5 rounded-2xl border transition-all duration-300 flex items-center gap-4 ${
+                whileHover={{ x: 8, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 280, damping: 20 }}
+                className={`cursor-pointer p-5 sm:p-6 rounded-2xl border transition-all duration-300 flex items-center gap-4 relative overflow-hidden ${
                   isActive 
-                    ? 'bg-white/[0.08] border-white/30 shadow-lg' 
-                    : 'bg-white/[0.02] border-white/[0.06] hover:border-white/15 opacity-70 hover:opacity-100'
+                    ? 'bg-white/[0.08] border-white/40 shadow-[0_0_30px_rgba(255,255,255,0.08)]' 
+                    : 'bg-white/[0.02] border-white/[0.06] hover:border-white/20 opacity-70 hover:opacity-100'
                 }`}
               >
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all ${
-                  isActive ? 'bg-white text-black font-bold shadow-md' : 'bg-white/[0.05] text-zinc-400'
+                {/* Active Indicator Bar */}
+                {isActive && (
+                  <motion.div 
+                    layoutId="activeExperienceIndicator"
+                    className="absolute left-0 top-0 bottom-0 w-1.5 bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)]" 
+                  />
+                )}
+
+                <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all ${
+                  isActive ? 'bg-white text-black font-bold shadow-md scale-105' : 'bg-white/[0.05] text-zinc-400'
                 }`}>
                   {step.icon}
                 </div>
 
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between mb-0.5">
+                  <div className="flex items-center justify-between mb-1">
                     <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-medium">
                       {step.period}
                     </span>
-                    {isActive && <FiCheckCircle className="text-white w-3.5 h-3.5" />}
+                    {isActive ? (
+                      <span className="flex items-center gap-1.5 text-xs font-mono text-emerald-400 font-semibold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                        <span>ACTIVE</span>
+                      </span>
+                    ) : (
+                      <span className="font-mono text-xs text-zinc-600">0{idx + 1}</span>
+                    )}
                   </div>
-                  <h4 className={`text-base sm:text-lg font-display font-semibold truncate ${isActive ? 'text-white' : 'text-zinc-300'}`}>
+                  <h4 className={`text-lg font-display font-semibold truncate ${isActive ? 'text-white' : 'text-zinc-300'}`}>
                     {step.stage}
                   </h4>
                 </div>
@@ -121,20 +136,26 @@ export default function ExperienceSection() {
           })}
         </div>
 
-        {/* Right Column: Editorial Stage Showcase */}
+        {/* Right Column: Editorial Stage Showcase with Dramatic Expansion */}
         <div className="lg:col-span-7 sticky top-28">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStage}
-              initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              exit={{ opacity: 0, y: -15, filter: "blur(4px)" }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-              className="p-8 sm:p-12 rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-3xl shadow-2xl relative overflow-hidden"
+              initial={{ opacity: 0, y: 25, scale: 0.97, filter: "blur(6px)" }}
+              animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -20, scale: 0.97, filter: "blur(6px)" }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="p-8 sm:p-12 md:p-14 rounded-3xl bg-white/[0.03] border border-white/[0.1] backdrop-blur-3xl shadow-2xl relative overflow-hidden"
             >
+              {/* Subtle Top Ambient Light */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+
               <div className="flex items-center justify-between font-mono text-xs text-zinc-500 mb-6 uppercase tracking-widest">
-                <span>PHASE {experienceStages[activeStage].id} / 05</span>
-                <span className="text-zinc-300 font-medium">{experienceStages[activeStage].period}</span>
+                <span className="flex items-center gap-2 text-white/90">
+                  <FiActivity className="text-emerald-400 animate-pulse" />
+                  <span>PHASE {experienceStages[activeStage].id} // MOMENTUM VECTOR</span>
+                </span>
+                <span className="text-zinc-300 font-medium px-3 py-1 rounded-full bg-white/[0.05] border border-white/10">{experienceStages[activeStage].period}</span>
               </div>
 
               <h3 className="text-2xl sm:text-4xl font-display font-bold text-white mb-5 leading-tight">
@@ -145,29 +166,36 @@ export default function ExperienceSection() {
                 {experienceStages[activeStage].description}
               </p>
 
-              {/* Editorial Highlight Box */}
-              <div className="p-5 rounded-2xl bg-white/[0.04] border border-white/[0.08] mb-8">
-                <span className="font-mono text-xs uppercase tracking-wider text-zinc-300 font-semibold block mb-1">
-                  Key Milestone Achievement
+              {/* Editorial Highlight Box with Physical Depth */}
+              <motion.div 
+                whileHover={{ scale: 1.01 }}
+                className="p-6 rounded-2xl bg-white/[0.04] border border-white/[0.1] mb-8 shadow-inner"
+              >
+                <span className="font-mono text-xs uppercase tracking-wider text-white font-semibold block mb-1.5 flex items-center gap-2">
+                  <FiCheckCircle className="text-emerald-400" />
+                  <span>Key Milestone Achievement</span>
                 </span>
-                <p className="font-sans font-light text-sm sm:text-base text-zinc-300">
+                <p className="font-sans font-light text-sm sm:text-base text-zinc-300 leading-relaxed">
                   {experienceStages[activeStage].highlight}
                 </p>
-              </div>
+              </motion.div>
 
               {/* Skills Stack */}
               <div>
-                <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 block mb-3">
-                  Core Capabilities
+                <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 block mb-3.5">
+                  Core Capabilities &amp; Tools
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {experienceStages[activeStage].skills.map((skill, sIdx) => (
-                    <span
+                    <motion.span
                       key={sIdx}
-                      className="px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] text-zinc-300 text-xs font-medium hover:border-white/20 transition-colors"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: sIdx * 0.05 }}
+                      className="px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] text-zinc-300 text-xs font-medium hover:border-white/30 hover:bg-white/[0.1] transition-all shadow-sm"
                     >
                       {skill}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -176,10 +204,10 @@ export default function ExperienceSection() {
               <div className="mt-10 pt-6 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-zinc-500">
                 <button 
                   onClick={() => setActiveStage((prev) => (prev + 1) % experienceStages.length)}
-                  className="flex items-center gap-2 text-white hover:text-zinc-300 transition-colors font-medium"
+                  className="flex items-center gap-2 text-white hover:text-zinc-300 transition-colors font-medium group"
                 >
                   <span>Explore Next Career Phase</span>
-                  <FiArrowRight />
+                  <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
                 </button>
                 <span>{activeStage + 1} of {experienceStages.length}</span>
               </div>

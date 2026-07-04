@@ -1,7 +1,60 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiExternalLink, FiGithub, FiCheckCircle, FiLayers, FiCpu, FiShoppingBag, FiScissors, FiTrendingUp, FiArrowUpRight } from 'react-icons/fi';
+import { FiExternalLink, FiGithub, FiCheckCircle, FiCpu, FiShoppingBag, FiScissors, FiTrendingUp, FiArrowUpRight, FiLayers } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
+
+// 3D Mouse Tilt Card Physics Wrapper
+function TiltCard({ children, onClick, isSelected }: { children: React.ReactNode; onClick: () => void; isSelected: boolean }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const box = card.getBoundingClientRect();
+    const x = e.clientX - box.left;
+    const y = e.clientY - box.top;
+    const centerX = box.width / 2;
+    const centerY = box.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -12; // Max 12 deg tilt
+    const rotateY = ((x - centerX) / centerX) * 12;
+    setRotate({ x: rotateX, y: rotateY });
+  };
+
+  const handleMouseLeave = () => {
+    setRotate({ x: 0, y: 0 });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onClick={onClick}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      animate={{ 
+        rotateX: rotate.x, 
+        rotateY: rotate.y,
+        scale: isSelected ? 1.02 : 1
+      }}
+      transition={{ type: "spring", stiffness: 250, damping: 20 }}
+      style={{ perspective: 1000 }}
+      className={`cursor-pointer p-6 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between h-48 relative overflow-hidden ${
+        isSelected
+          ? 'bg-white/[0.09] border-white/45 shadow-[0_10px_35px_rgba(255,255,255,0.12)]'
+          : 'bg-white/[0.02] border-white/[0.06] hover:border-white/25 opacity-80 hover:opacity-100 shadow-lg'
+      }`}
+    >
+      {/* 3D Depth Shimmer Accent */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: `radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 70%)`
+        }}
+      />
+      {children}
+    </motion.div>
+  );
+}
 
 const products = [
   {
@@ -107,33 +160,30 @@ export default function ProductsSection() {
         </p>
       </motion.div>
 
-      {/* Luxury Bento Grid Selector */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+      {/* Luxury Bento Grid Selector with 3D Tilt Physics */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
         {products.map((item, idx) => {
           const isSelected = selectedProduct === idx;
           return (
-            <motion.div
+            <TiltCard
               key={item.id}
               onClick={() => setSelectedProduct(idx)}
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className={`cursor-pointer p-6 rounded-2xl border text-left transition-all duration-300 flex flex-col justify-between h-44 ${
-                isSelected
-                  ? 'bg-white/[0.08] border-white/40 shadow-xl'
-                  : 'bg-white/[0.02] border-white/[0.06] hover:border-white/20 opacity-80 hover:opacity-100'
-              }`}
+              isSelected={isSelected}
             >
-              <div className="flex items-center justify-between w-full">
-                <span className="font-mono text-xs text-zinc-400 font-semibold">{item.id}</span>
-                <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
-                  isSelected ? 'bg-white text-black font-bold' : 'bg-white/[0.05] text-zinc-400'
+              <div className="flex items-center justify-between w-full relative z-10">
+                <span className="font-mono text-xs text-zinc-400 font-semibold flex items-center gap-1.5">
+                  <FiLayers className="w-3.5 h-3.5 text-zinc-500" />
+                  <span>{item.id}</span>
+                </span>
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
+                  isSelected ? 'bg-white text-black font-bold shadow-md scale-110' : 'bg-white/[0.05] text-zinc-400'
                 }`}>
                   {item.icon}
                 </div>
               </div>
 
-              <div>
-                <h4 className="text-lg font-display font-bold text-white truncate mb-1">
+              <div className="relative z-10">
+                <h4 className="text-xl font-display font-bold text-white truncate mb-1">
                   {item.name}
                 </h4>
                 <span className="text-xs font-mono text-zinc-500 truncate block">
@@ -141,30 +191,36 @@ export default function ProductsSection() {
                 </span>
               </div>
 
-              <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-zinc-400">
-                <span>{isSelected ? 'Currently Selected' : 'Select to View'}</span>
+              <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-zinc-400 relative z-10">
+                <span className={isSelected ? 'text-emerald-400 font-semibold' : ''}>
+                  {isSelected ? 'ACTIVE BLUEPRINT' : 'Select to View'}
+                </span>
                 <FiArrowUpRight className="w-3.5 h-3.5" />
               </div>
-            </motion.div>
+            </TiltCard>
           );
         })}
       </div>
 
-      {/* Editorial Product Spotlight Showcase */}
+      {/* Editorial Product Spotlight Showcase with Dramatic Expansion */}
       <AnimatePresence mode="wait">
         <motion.div
           key={selectedProduct}
-          initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -15, filter: "blur(4px)" }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
-          className="p-8 sm:p-12 md:p-16 rounded-3xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-3xl shadow-2xl relative overflow-hidden"
+          initial={{ opacity: 0, y: 25, scale: 0.96, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+          exit={{ opacity: 0, y: -20, scale: 0.96, filter: "blur(8px)" }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="p-8 sm:p-12 md:p-16 rounded-3xl bg-white/[0.03] border border-white/[0.1] backdrop-blur-3xl shadow-2xl relative overflow-hidden"
         >
+          {/* Ambient Spotlight */}
+          <div className="absolute top-0 right-10 w-96 h-96 bg-gradient-to-bl from-white/[0.05] to-transparent rounded-full blur-3xl pointer-events-none" />
+
           {/* Top Header Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-white/[0.08]">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-6 border-b border-white/[0.08] relative z-10">
             <div className="flex items-center gap-3">
-              <span className="px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/10 font-mono text-xs text-zinc-300 font-medium">
-                {products[selectedProduct].status}
+              <span className="px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 font-mono text-xs text-emerald-400 font-semibold flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>{products[selectedProduct].status}</span>
               </span>
               <span className="font-mono text-xs text-zinc-500 hidden sm:inline">// {products[selectedProduct].category}</span>
             </div>
@@ -172,7 +228,7 @@ export default function ProductsSection() {
             {/* Actions */}
             <div className="flex items-center gap-3">
               {products[selectedProduct].githubUrl && products[selectedProduct].githubUrl !== '#' && (
-                <Button variant="outline" size="sm" asChild className="rounded-full border-white/15 hover:bg-white/[0.08] text-white text-xs font-medium">
+                <Button variant="outline" size="sm" asChild className="rounded-full border-white/20 hover:bg-white/[0.1] text-white text-xs font-medium h-10 px-5 shadow-sm">
                   <a href={products[selectedProduct].githubUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                     <FiGithub className="w-4 h-4" />
                     <span>Source Code</span>
@@ -180,7 +236,7 @@ export default function ProductsSection() {
                 </Button>
               )}
               {products[selectedProduct].liveUrl && products[selectedProduct].liveUrl !== '#' && (
-                <Button size="sm" asChild className="rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-semibold px-5 shadow-sm">
+                <Button size="sm" asChild className="rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-semibold px-6 h-10 shadow-md">
                   <a href={products[selectedProduct].liveUrl} target="_blank" rel="noreferrer" className="flex items-center gap-2">
                     <span>Visit Platform</span>
                     <FiExternalLink className="w-4 h-4" />
@@ -191,7 +247,7 @@ export default function ProductsSection() {
           </div>
 
           {/* Product Spotlight Details */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
             
             {/* Left Column: Description & Role */}
             <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-8">
@@ -207,43 +263,56 @@ export default function ProductsSection() {
                 </p>
               </div>
 
-              {/* Ownership Box */}
-              <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
-                <span className="font-mono text-xs uppercase tracking-wider text-zinc-400 font-semibold block mb-1">
+              {/* Ownership Box with Physical Depth */}
+              <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] shadow-inner">
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-400 font-semibold block mb-1.5">
                   Architectural Role &amp; Ownership
                 </span>
-                <span className="font-sans font-light text-sm sm:text-base text-zinc-300">
+                <span className="font-sans font-medium text-sm sm:text-base text-white">
                   {products[selectedProduct].role}
                 </span>
               </div>
 
               {/* Tech Stack Pills */}
               <div>
-                <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 block mb-3">
+                <span className="text-xs font-mono uppercase tracking-widest text-zinc-500 block mb-3.5">
                   Core Engineering Stack
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2.5">
                   {products[selectedProduct].techStack.map((tech, tIdx) => (
-                    <span key={tIdx} className="px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.08] text-zinc-300 text-xs font-medium">
+                    <motion.span 
+                      key={tIdx} 
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: tIdx * 0.06 }}
+                      className="px-4 py-1.5 rounded-full bg-white/[0.06] border border-white/10 text-zinc-300 text-xs font-medium shadow-sm hover:border-white/30 transition-colors"
+                    >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
             </div>
 
             {/* Right Column: Features Checklist */}
-            <div className="lg:col-span-5 bg-white/[0.02] border border-white/[0.06] rounded-3xl p-6 sm:p-8">
-              <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 block mb-6 pb-4 border-b border-white/[0.06] font-semibold">
-                Key Platform Capabilities
+            <div className="lg:col-span-5 bg-white/[0.02] border border-white/[0.08] rounded-3xl p-6 sm:p-8 shadow-xl">
+              <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 block mb-6 pb-4 border-b border-white/[0.08] font-semibold flex items-center justify-between">
+                <span>Key Platform Capabilities</span>
+                <span className="text-emerald-400 font-mono">[ VERIFIED ]</span>
               </span>
 
               <div className="space-y-4">
                 {products[selectedProduct].features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-start gap-3 text-sm sm:text-base text-zinc-300 font-light leading-relaxed">
-                    <FiCheckCircle className="text-white w-4 h-4 shrink-0 mt-1" />
+                  <motion.div 
+                    key={fIdx} 
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: fIdx * 0.1 }}
+                    className="flex items-start gap-3.5 text-sm sm:text-base text-zinc-300 font-light leading-relaxed"
+                  >
+                    <FiCheckCircle className="text-emerald-400 w-4 h-4 shrink-0 mt-1" />
                     <span>{feat}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
