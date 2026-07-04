@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiCloud, FiCpu, FiUsers, FiTrendingUp, FiArrowUpRight } from 'react-icons/fi';
+import { FiCloud, FiCpu, FiUsers, FiTrendingUp, FiArrowUpRight, FiRadio } from 'react-icons/fi';
 
 const futureAmbitions = [
   {
@@ -41,22 +41,26 @@ export default function Chapter7Future() {
   return (
     <section id="chapter-7" className="min-h-screen w-full py-28 px-6 md:px-12 relative z-10 flex flex-col justify-center overflow-hidden">
       
-      {/* Horizon Ambient Light Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-t from-cyan-500/20 via-purple-500/15 to-transparent rounded-full blur-[160px] pointer-events-none -z-10" />
+      {/* Expanding Ecosystem Animated Background Waves */}
+      <motion.div
+        animate={{ scale: [1, 1.35, 1], opacity: [0.15, 0.35, 0.15] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[950px] h-[550px] bg-gradient-to-t from-cyan-500/25 via-purple-500/20 to-transparent rounded-full blur-[170px] pointer-events-none -z-10"
+      />
 
       <div className="max-w-6xl mx-auto w-full">
         
         {/* Chapter Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
           className="mb-16 md:mb-24 text-center flex flex-col items-center"
         >
-          <div className="inline-flex items-center gap-3 mb-4 font-mono text-cyan-400 text-sm tracking-widest uppercase px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-            <span>CHAPTER 7 // THE HORIZON</span>
+          <div className="inline-flex items-center gap-3 mb-4 font-mono text-cyan-400 text-sm tracking-widest uppercase px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
+            <FiRadio className="text-cyan-400 animate-spin" />
+            <span>CHAPTER 7 // EXPANDING HORIZON</span>
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-8xl font-display font-extrabold text-white tracking-tight leading-none max-w-5xl">
             Ambitions Instead of <span className="text-gradient">Achievements</span>.
@@ -66,23 +70,24 @@ export default function Chapter7Future() {
           </p>
         </motion.div>
 
-        {/* Future Ambitions Grid */}
+        {/* Future Ambitions Expanding Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {futureAmbitions.map((item, idx) => (
             <motion.div
               key={item.goal}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className={`group p-8 sm:p-10 rounded-3xl bg-gradient-to-br ${item.gradient} bg-white/[0.04] border ${item.border} hover:border-white/50 transition-all duration-500 backdrop-blur-2xl flex flex-col justify-between relative overflow-hidden`}
+              initial={{ opacity: 0, y: 45, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.65, delay: idx * 0.15, ease: "easeOut" }}
+              whileHover={{ scale: 1.02, y: -6 }}
+              className={`group p-8 sm:p-10 rounded-3xl bg-gradient-to-br ${item.gradient} bg-white/[0.05] border ${item.border} hover:border-white/60 transition-all duration-500 backdrop-blur-2xl flex flex-col justify-between relative overflow-hidden shadow-xl`}
             >
               {/* Corner Goal Monogram */}
               <div className="flex items-center justify-between mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center group-hover:scale-110 group-hover:bg-cyan-400 group-hover:text-black transition-all duration-300 shadow-inner">
                   {item.icon}
                 </div>
-                <span className="font-mono text-4xl font-black text-white/10 group-hover:text-white/20 transition-colors">
+                <span className="font-mono text-4xl font-black text-white/15 group-hover:text-white/30 transition-colors">
                   GOAL // {item.goal}
                 </span>
               </div>
@@ -90,7 +95,7 @@ export default function Chapter7Future() {
               <div>
                 <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-4 flex items-center justify-between group-hover:text-cyan-300 transition-colors">
                   <span>{item.title}</span>
-                  <FiArrowUpRight className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                  <FiArrowUpRight className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </h3>
                 <p className="text-muted-foreground text-base sm:text-lg font-light leading-relaxed">
                   {item.description}
@@ -99,8 +104,11 @@ export default function Chapter7Future() {
 
               {/* Roadmap Tracker Indicator */}
               <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-muted-foreground/80">
-                <span>STATUS // IN ACTIVE DEVELOPMENT & PREPARATION</span>
-                <span className="text-cyan-400 font-semibold">[ NEXT GENERATION ]</span>
+                <span>STATUS // IN ACTIVE DEVELOPMENT</span>
+                <span className="text-cyan-400 font-semibold flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                  <span>[ NEXT GENERATION ]</span>
+                </span>
               </div>
             </motion.div>
           ))}
@@ -108,13 +116,13 @@ export default function Chapter7Future() {
 
         {/* Visionary Horizon Quote Banner */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mt-20 text-center"
+          transition={{ duration: 1, delay: 0.4 }}
+          className="mt-20 text-center p-10 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl"
         >
-          <p className="text-xl md:text-2xl font-mono font-light text-cyan-300/80 tracking-wide">
+          <p className="text-xl md:text-3xl font-mono font-light text-cyan-300/90 tracking-wide leading-relaxed">
             &ldquo;We are entering the golden age of the solo and lean product builder. With AI as our lever, there are no limits to the scale of problems we can solve.&rdquo;
           </p>
         </motion.div>

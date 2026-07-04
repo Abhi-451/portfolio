@@ -1,67 +1,57 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiFeather, FiMonitor, FiServer, FiCloud, FiZap, FiBox, FiCheckCircle } from 'react-icons/fi';
+import { FiFeather, FiCode, FiBox, FiCpu, FiTrendingUp, FiCheckCircle, FiArrowRight } from 'react-icons/fi';
 
 const timelineSteps = [
   {
     id: "01",
-    stage: "UI/UX Design",
-    title: "Designing for Impact & Empathy",
+    stage: "Designer",
+    title: "Designing for Human Empathy & Impact",
     icon: <FiFeather className="w-6 h-6 text-pink-400" />,
     color: "from-pink-500 to-rose-500",
-    description: "My journey started with Figma and wireframes. I obsessed over color psychology, typography hierarchy, and user flows. This foundation ensures that every application I build today doesn't just function flawlessly—it feels intuitive and premium.",
-    skills: ["Figma", "Wireframing", "User Research", "Design Systems", "Interactive Prototyping"],
-    highlight: "Started as a UI/UX designer focusing on human empathy."
+    description: "My roots began in visual communication and UI/UX architecture. Before writing syntax, I mastered wireframing, color psychology, and intuitive interface design. This ensures every product I build feels premium, effortless, and human-centric.",
+    skills: ["Figma Systems", "Interactive Prototyping", "User Research", "Visual Hierarchy", "Design Systems"],
+    achievement: "Architected 30+ high-conversion UI prototypes before writing a single line of backend logic."
   },
   {
     id: "02",
-    stage: "Frontend Development",
-    title: "Bringing Interfaces to Life",
-    icon: <FiMonitor className="w-6 h-6 text-purple-400" />,
+    stage: "Developer",
+    title: "Mastering Full Stack Engineering",
+    icon: <FiCode className="w-6 h-6 text-purple-400" />,
     color: "from-purple-500 to-indigo-500",
-    description: "Static mockups weren't enough. I learned modern HTML, CSS, JavaScript, and React to turn my designs into living, breathing web applications with 60fps animations and responsive layouts across all screen sizes.",
-    skills: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Responsive Layouts"],
-    highlight: "Transitioned into interactive frontend architecture."
+    description: "Static designs needed breathing engines. I immersed myself in frontend responsiveness and server-side backend logic—mastering React, TypeScript, Node.js, and relational database modeling with PostgreSQL.",
+    skills: ["React & Next.js", "TypeScript", "Node.js & REST APIs", "PostgreSQL", "Framer Motion"],
+    achievement: "Transitioned from static mockups to full-stack architectures capable of handling complex relational data."
   },
   {
     id: "03",
-    stage: "Backend Development",
-    title: "Architecting the Core Engine",
-    icon: <FiServer className="w-6 h-6 text-cyan-400" />,
+    stage: "Builder",
+    title: "Shipping Complete SaaS Ecosystems",
+    icon: <FiBox className="w-6 h-6 text-cyan-400" />,
     color: "from-cyan-500 to-blue-500",
-    description: "To build true software, I dove deep into server-side programming. I mastered Node.js, REST APIs, and PostgreSQL database modeling—enabling secure authentication, high-performance data queries, and scalable business logic.",
-    skills: ["Node.js", "REST APIs", "PostgreSQL", "Authentication", "Data Modeling"],
-    highlight: "Learned to build complete products from frontend to backend."
+    description: "A developer writes code; a builder ships products. I stepped out of IDE silos to manage end-to-end product lifecycles—from cloud deployments on Vercel to domain DNS configurations, CDN caching, and user onboarding pipelines.",
+    skills: ["End-to-End Execution", "Vercel CI/CD", "Cloud Infrastructure", "System Architecture", "Performance Tuning"],
+    achievement: "Shipped and launched multi-sided marketplace platforms (Scuts & LocalFluence) to live public production."
   },
   {
     id: "04",
-    stage: "Deployment & DevOps",
-    title: "Shipping to Production",
-    icon: <FiCloud className="w-6 h-6 text-teal-400" />,
-    color: "from-teal-500 to-emerald-500",
-    description: "A great app on localhost is useless. I learned Git workflows, automated CI/CD pipelines, and serverless deployments on platforms like Vercel, ensuring zero-downtime releases and global CDN distribution.",
-    skills: ["Git & GitHub", "Vercel CI/CD", "Environment Configs", "Production Monitoring", "Domain DNS"],
-    highlight: "Mastered end-to-end production deployment pipelines."
+    stage: "Automation Engineer",
+    title: "Creating Asymmetrical AI Leverage",
+    icon: <FiCpu className="w-6 h-6 text-amber-400" />,
+    color: "from-amber-500 to-orange-500",
+    description: "The modern paradigm shift: integrating autonomous AI agents, LLM pipelines, and n8n workflow engines. I transform multi-hour manual business processes into instantaneous, self-executing digital workflows.",
+    skills: ["AI Autonomous Agents", "n8n Workflow Engine", "LLM API Integrations", "Custom Prompt Architecture", "Webhook Pipelines"],
+    achievement: "Engineered autonomous 24/7 workflows that automatically scrape, evaluate, and act on career and client opportunities."
   },
   {
     id: "05",
-    stage: "AI & Automation",
-    title: "Creating Intelligent Leverage",
-    icon: <FiZap className="w-6 h-6 text-amber-400" />,
-    color: "from-amber-500 to-orange-500",
-    description: "The modern frontier: integrating Large Language Models (LLMs), AI autonomous agents, and workflow engines like n8n. I automate complex business operations, turning multi-hour manual workflows into instant AI-executed processes.",
-    skills: ["AI Agents", "LLM Integrations", "n8n Workflows", "Automated Pipelines", "Prompt Engineering"],
-    highlight: "Focused on solving real-world business problems with AI leverage."
-  },
-  {
-    id: "06",
-    stage: "Product Building",
-    title: "The Holistic Builder Mindset",
-    icon: <FiBox className="w-6 h-6 text-red-400" />,
-    color: "from-red-500 to-pink-500",
-    description: "Today, all these skills converge into one title: Product Builder. I don't just write code; I look at market needs, architect scalable solutions, launch live platforms, and iterate based on real user feedback.",
-    skills: ["Product Strategy", "End-to-End Execution", "Client Collaboration", "SaaS Architecture", "Revenue Focus"],
-    highlight: "Evolved into a full-stack product developer who ships and delivers."
+    stage: "Product Creator",
+    title: "Architecting Businesses & Revenue",
+    icon: <FiTrendingUp className="w-6 h-6 text-emerald-400" />,
+    color: "from-emerald-500 to-teal-500",
+    description: "The apex of my journey: combining design empathy, engineering rigor, and AI automation to create real business value. Today, I turn raw concepts into revenue-generating platforms that solve undeniable market friction.",
+    skills: ["Product Strategy", "B2B SaaS Scaling", "Client Leadership", "Revenue Architecture", "Continuous Innovation"],
+    achievement: "Delivered production-grade systems for paying clients (iTeachTrading) with verified 99.9% uptime and immediate business ROI."
   }
 ];
 
@@ -85,19 +75,19 @@ export default function Chapter2Evolution() {
             <span>CHAPTER 2</span>
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold text-white tracking-tight leading-tight max-w-4xl">
-            From Designer to <span className="text-gradient">Full Stack Developer</span>.
+            The <span className="text-gradient">Evolution</span> Timeline.
           </h2>
           <p className="mt-6 text-lg sm:text-xl text-muted-foreground font-light max-w-3xl leading-relaxed">
-            Growth isn&apos;t linear—it is cumulative. Every layer of technology I learned built upon the last, transforming a visual designer into a complete product architect capable of executing from wireframe to AI automation.
+            Growth is an accelerating momentum. Each stage of my evolution expanded my capability horizon—transforming a curious designer into a full-stack product creator powered by AI automation.
           </p>
         </motion.div>
 
-        {/* Interactive Timeline Container */}
+        {/* Interactive Momentum Timeline */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Left Column: Timeline Navigation List */}
-          <div className="lg:col-span-5 flex flex-col gap-3 relative">
-            {/* Vertical Glowing Connecting Line */}
+          {/* Left Column: Animated Timeline Momentum Steps */}
+          <div className="lg:col-span-5 flex flex-col gap-3.5 relative">
+            {/* Vertical Glowing Connecting Bar */}
             <div className="absolute left-6 top-8 bottom-8 w-[2px] bg-white/10 -z-10 hidden sm:block" />
 
             {timelineSteps.map((step, idx) => {
@@ -106,16 +96,17 @@ export default function Chapter2Evolution() {
                 <motion.div
                   key={step.id}
                   onClick={() => setActiveStep(idx)}
-                  whileHover={{ x: 6 }}
+                  whileHover={{ x: 8 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
                   className={`cursor-pointer p-4 md:p-5 rounded-2xl border transition-all duration-300 flex items-center gap-4 relative backdrop-blur-md ${
                     isActive 
-                      ? 'bg-gradient-to-r from-white/15 to-white/5 border-cyan-500/60 shadow-[0_0_25px_rgba(6,182,212,0.15)]' 
+                      ? 'bg-gradient-to-r from-white/20 to-white/5 border-cyan-400 shadow-[0_0_30px_rgba(6,182,212,0.25)]' 
                       : 'bg-white/[0.03] border-white/5 hover:border-white/20 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  {/* Active Indicator Dot */}
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                    isActive ? 'bg-cyan-500 text-black font-bold shadow-lg' : 'bg-white/10 text-white'
+                  {/* Active Indicator Pulse Dot */}
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
+                    isActive ? 'bg-cyan-400 text-black font-extrabold shadow-lg scale-110' : 'bg-white/10 text-white'
                   }`}>
                     {step.icon}
                   </div>
@@ -136,25 +127,26 @@ export default function Chapter2Evolution() {
             })}
           </div>
 
-          {/* Right Column: Active Stage Spotlight Display */}
+          {/* Right Column: Active Stage Cinematic Expansion Spotlight */}
           <div className="lg:col-span-7 sticky top-28">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep}
-                initial={{ opacity: 0, x: 20, scale: 0.98 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -20, scale: 0.98 }}
-                transition={{ duration: 0.4 }}
-                className="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-white/[0.09] via-white/[0.04] to-transparent border border-white/15 backdrop-blur-2xl shadow-2xl relative overflow-hidden"
+                initial={{ opacity: 0, x: 25, scale: 0.95, filter: "blur(6px)" }}
+                animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+                exit={{ opacity: 0, x: -25, scale: 0.95, filter: "blur(6px)" }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
+                className="p-8 md:p-14 rounded-3xl bg-gradient-to-br from-white/[0.09] via-white/[0.03] to-transparent border border-white/15 backdrop-blur-2xl shadow-2xl relative overflow-hidden"
               >
                 {/* Background Ambient Glow */}
-                <div className={`absolute -right-20 -top-20 w-80 h-80 bg-gradient-to-br ${timelineSteps[activeStep].color} rounded-full blur-[100px] opacity-20 pointer-events-none`} />
+                <div className={`absolute -right-24 -top-24 w-80 h-80 bg-gradient-to-br ${timelineSteps[activeStep].color} rounded-full blur-[110px] opacity-25 pointer-events-none`} />
 
-                <div className="flex items-center gap-3 font-mono text-xs text-muted-foreground mb-6 uppercase tracking-widest">
-                  <span className="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-white">
-                    STAGE {timelineSteps[activeStep].id} // 06
+                <div className="flex items-center justify-between font-mono text-xs text-muted-foreground mb-6 uppercase tracking-widest">
+                  <span className="px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-white font-semibold flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+                    STAGE {timelineSteps[activeStep].id} // 05
                   </span>
-                  <span>{timelineSteps[activeStep].stage}</span>
+                  <span className="text-cyan-300 font-bold">{timelineSteps[activeStep].stage}</span>
                 </div>
 
                 <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white mb-6 leading-tight">
@@ -165,22 +157,30 @@ export default function Chapter2Evolution() {
                   {timelineSteps[activeStep].description}
                 </p>
 
-                {/* Highlight Badge */}
-                <div className="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-sm mb-8 flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 shrink-0 animate-ping" />
-                  <span><strong>Key Milestone:</strong> {timelineSteps[activeStep].highlight}</span>
-                </div>
+                {/* Highlight Achievement Box */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="p-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-200 font-mono text-sm mb-8 flex items-start gap-3.5 shadow-inner"
+                >
+                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 shrink-0 animate-pulse mt-1" />
+                  <div>
+                    <strong className="text-cyan-400 block mb-1 uppercase text-xs tracking-wider">// KEY MOMENTUM ACHIEVEMENT</strong>
+                    <span className="font-sans font-light text-base text-white/90">{timelineSteps[activeStep].achievement}</span>
+                  </div>
+                </motion.div>
 
                 {/* Skills Stack */}
                 <div>
                   <h5 className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-4">
-                    // Technologies & Capabilities Acquired
+                    // Capabilities Acquired At This Stage
                   </h5>
                   <div className="flex flex-wrap gap-2.5">
                     {timelineSteps[activeStep].skills.map((skill, sIdx) => (
                       <span
                         key={sIdx}
-                        className="px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 text-white/90 text-sm font-medium hover:bg-white/10 hover:border-white/30 transition-colors"
+                        className="px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-white/90 text-sm font-medium hover:bg-white/15 hover:border-white/30 transition-colors"
                       >
                         {skill}
                       </span>
@@ -188,10 +188,16 @@ export default function Chapter2Evolution() {
                   </div>
                 </div>
 
-                {/* Bottom Step Progress Indicator */}
+                {/* Bottom Step Progress Footer */}
                 <div className="mt-10 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-muted-foreground">
-                  <span>CLICK ANY STAGE ON THE LEFT TO EXPLORE</span>
-                  <span>{activeStep + 1} of {timelineSteps.length}</span>
+                  <button 
+                    onClick={() => setActiveStep((prev) => (prev + 1) % timelineSteps.length)}
+                    className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors font-bold"
+                  >
+                    <span>NEXT STAGE MOMENTUM</span>
+                    <FiArrowRight />
+                  </button>
+                  <span>STAGE {activeStep + 1} OF {timelineSteps.length}</span>
                 </div>
               </motion.div>
             </AnimatePresence>

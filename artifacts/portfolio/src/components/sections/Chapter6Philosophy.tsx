@@ -37,15 +37,23 @@ const coreBeliefs = [
 
 export default function Chapter6Philosophy() {
   return (
-    <section id="chapter-6" className="min-h-screen w-full py-28 px-6 md:px-12 relative z-10 flex flex-col justify-center bg-black/40">
+    <section id="chapter-6" className="min-h-screen w-full py-28 px-6 md:px-12 relative z-10 flex flex-col justify-center bg-black/40 overflow-hidden">
+      
+      {/* Background Animated Motion Support */}
+      <motion.div
+        animate={{ scale: [1, 1.2, 1], rotate: [0, 10, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-cyan-500/10 via-purple-500/10 to-transparent rounded-full blur-[160px] pointer-events-none -z-10"
+      />
+
       <div className="max-w-6xl mx-auto w-full">
         
         {/* Chapter Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
           className="mb-16 md:mb-24"
         >
           <div className="flex items-center gap-3 mb-4 font-mono text-cyan-400 text-sm tracking-widest uppercase">
@@ -60,16 +68,17 @@ export default function Chapter6Philosophy() {
           </p>
         </motion.div>
 
-        {/* Cinematic Beliefs Stack */}
+        {/* Cinematic Beliefs Stack with Scroll Scaling */}
         <div className="space-y-6 md:space-y-8">
           {coreBeliefs.map((belief, idx) => (
             <motion.div
               key={belief.number}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="group p-8 sm:p-10 md:p-12 rounded-3xl bg-gradient-to-r from-white/[0.07] via-white/[0.03] to-transparent border border-white/10 hover:border-cyan-500/50 transition-all duration-500 backdrop-blur-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden"
+              initial={{ opacity: 0, scale: 0.92, y: 45 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.65, delay: idx * 0.1, ease: "easeOut" }}
+              whileHover={{ scale: 1.015, x: 6 }}
+              className="group p-8 sm:p-10 md:p-12 rounded-3xl bg-gradient-to-r from-white/[0.08] via-white/[0.03] to-transparent border border-white/10 hover:border-cyan-500/50 transition-all duration-500 backdrop-blur-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden shadow-xl"
             >
               {/* Left Number & Title */}
               <div className="flex items-start sm:items-center gap-6 md:gap-8 max-w-2xl">
@@ -101,15 +110,16 @@ export default function Chapter6Philosophy() {
           ))}
         </div>
 
-        {/* Large Typography Statement Banner */}
+        {/* Large Typography Statement Banner with Cinematic Scale Physics */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.88, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-20 text-center py-12 px-6 rounded-3xl bg-gradient-to-b from-transparent to-white/[0.04] border border-white/10"
+          transition={{ duration: 0.85, delay: 0.2, ease: "easeOut" }}
+          className="mt-20 text-center py-16 px-6 rounded-3xl bg-gradient-to-b from-transparent to-white/[0.05] border border-white/15 backdrop-blur-2xl shadow-2xl relative overflow-hidden"
         >
-          <p className="text-2xl sm:text-4xl md:text-5xl font-display font-black text-white tracking-tight uppercase leading-snug">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
+          <p className="text-2xl sm:text-4xl md:text-6xl font-display font-black text-white tracking-tight uppercase leading-snug">
             &ldquo;Don&apos;t Tell Me What You Learned.{' '}
             <span className="text-gradient underline decoration-cyan-500/50 underline-offset-8">Show Me What You Shipped.</span>&rdquo;
           </p>

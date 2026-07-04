@@ -1,72 +1,80 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMonitor, FiServer, FiDatabase, FiCpu, FiTool, FiTerminal, FiZap, FiCheckCircle } from 'react-icons/fi';
+import { FiCpu, FiDatabase, FiLayout, FiServer, FiTool, FiCheckCircle, FiActivity, FiZap, FiArrowRight } from 'react-icons/fi';
+
+const ecosystemNodes = [
+  { id: 'frontend', title: 'Frontend Edge UI', icon: <FiLayout className="w-5 h-5 text-pink-400" />, skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'], color: 'from-pink-500/20 border-pink-500/40 text-pink-300', x: '10%', y: '20%' },
+  { id: 'backend', title: 'Serverless & APIs', icon: <FiServer className="w-5 h-5 text-purple-400" />, skills: ['Node.js', 'Express', 'REST APIs', 'Webhooks', 'Auth Pipelines'], color: 'from-purple-500/20 border-purple-500/40 text-purple-300', x: '55%', y: '15%' },
+  { id: 'database', title: 'Relational Data', icon: <FiDatabase className="w-5 h-5 text-cyan-400" />, skills: ['PostgreSQL', 'Supabase', 'Prisma ORM', 'SQL Modeling', 'Redis Cache'], color: 'from-cyan-500/20 border-cyan-500/40 text-cyan-300', x: '15%', y: '70%' },
+  { id: 'ai', title: 'AI & Automation Hub', icon: <FiCpu className="w-5 h-5 text-amber-400" />, skills: ['n8n Workflows', 'LLM Agents', 'OpenAI API', 'Python Scrapers', 'Telegram Bots'], color: 'from-amber-500/20 border-amber-500/40 text-amber-300', x: '60%', y: '65%' },
+];
 
 const arsenalCategories = [
   {
-    id: "ALL",
-    name: "Full Arsenal",
-    icon: <FiZap className="w-4 h-4" />
+    id: "frontend",
+    title: "Frontend Architecture & UI Systems",
+    icon: <FiLayout className="w-5 h-5 text-pink-400" />,
+    description: "Creating ultra-responsive, accessible, and buttery-smooth user interfaces that feel alive.",
+    skills: [
+      { name: "React & Next.js Ecosystem", level: 95, details: "Server components, routing, dynamic rendering" },
+      { name: "TypeScript / JavaScript (ES6+)", level: 90, details: "Strict type safety, generic interfaces, clean syntax" },
+      { name: "Tailwind CSS & Modern Styling", level: 95, details: "Utility-first design systems, responsive layouts" },
+      { name: "Framer Motion & Micro-Interactions", level: 90, details: "Physics-based animation, gesture animations" }
+    ]
   },
   {
-    id: "FRONTEND",
-    name: "Frontend & Mobile",
-    icon: <FiMonitor className="w-4 h-4 text-pink-400" />
+    id: "backend",
+    title: "Backend Engineering & API Design",
+    icon: <FiServer className="w-5 h-5 text-purple-400" />,
+    description: "Architecting reliable, high-throughput server logic and secure API communication layers.",
+    skills: [
+      { name: "Node.js & Runtime Environments", level: 88, details: "Asynchronous event loops, RESTful microservices" },
+      { name: "API Architecture & Webhooks", level: 92, details: "Payload validation, real-time event triggers" },
+      { name: "Authentication & Security", level: 85, details: "JWT, OAuth2, session management, CORS" },
+      { name: "Serverless & Edge Compute", level: 85, details: "Vercel edge functions, lightweight execution" }
+    ]
   },
   {
-    id: "BACKEND",
-    name: "Backend Engines",
-    icon: <FiServer className="w-4 h-4 text-cyan-400" />
+    id: "database",
+    title: "Database Modeling & Data Persistence",
+    icon: <FiDatabase className="w-5 h-5 text-cyan-400" />,
+    description: "Designing relational schemas that scale without querying bottlenecks or data corruption.",
+    skills: [
+      { name: "PostgreSQL & Relational SQL", level: 88, details: "Complex joins, indexing, ACID compliance" },
+      { name: "Supabase & Backend-as-a-Service", level: 90, details: "Row-level security, real-time subscriptions" },
+      { name: "Prisma & Modern ORMs", level: 85, details: "Type-safe database queries and migrations" },
+      { name: "Data Structure & Caching Strategy", level: 82, details: "Redis caching principles, memory efficiency" }
+    ]
   },
   {
-    id: "DATABASE",
-    name: "Data & Storage",
-    icon: <FiDatabase className="w-4 h-4 text-purple-400" />
+    id: "ai-automation",
+    title: "AI Agents & Workflow Automation",
+    icon: <FiCpu className="w-5 h-5 text-amber-400" />,
+    description: "The modern multiplier: orchestrating autonomous digital workers and self-executing pipelines.",
+    skills: [
+      { name: "n8n Workflow Automation", level: 95, details: "Complex multi-node webhook and API pipelines" },
+      { name: "Autonomous AI Agents & LLM APIs", level: 90, details: "OpenAI, Claude, custom system prompt design" },
+      { name: "Python Scrapers & Data Extraction", level: 85, details: "BeautifulSoup, automated web interaction" },
+      { name: "Automated Push Notification Systems", level: 92, details: "Telegram bots, automated CRM lead routing" }
+    ]
   },
   {
-    id: "AI_AUTOMATION",
-    name: "AI & Automation",
-    icon: <FiCpu className="w-4 h-4 text-amber-400" />
-  },
-  {
-    id: "TOOLS",
-    name: "DevOps & Tools",
-    icon: <FiTool className="w-4 h-4 text-emerald-400" />
+    id: "devops",
+    title: "DevOps, Cloud & Tooling Ecosystem",
+    icon: <FiTool className="w-5 h-5 text-emerald-400" />,
+    description: "Ensuring code transitions seamlessly from local IDEs to fault-tolerant production servers.",
+    skills: [
+      { name: "Vercel & CI/CD Pipelines", level: 92, details: "Automated preview deployments and DNS routing" },
+      { name: "Git & Collaborative Version Control", level: 90, details: "Branching strategies, clean pull request workflows" },
+      { name: "Linux CLI & Server Management", level: 80, details: "Bash scripting, environment variable security" },
+      { name: "Lighthouse & Performance Tuning", level: 88, details: "Core Web Vitals optimization, bundle reduction" }
+    ]
   }
 ];
 
-const techModules = [
-  // Frontend
-  { name: "Flutter", category: "FRONTEND", type: "Cross-Platform Mobile Framework", level: "95%", iconText: "FL", border: "border-pink-500/30", glow: "hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]" },
-  { name: "Dart", category: "FRONTEND", type: "Client-Optimized Language", level: "90%", iconText: "DR", border: "border-pink-500/30", glow: "hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]" },
-  { name: "HTML5 & CSS3", category: "FRONTEND", type: "Semantic Web & Styling Architecture", level: "98%", iconText: "HC", border: "border-pink-500/30", glow: "hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]" },
-  { name: "JavaScript (ES6+)", category: "FRONTEND", type: "Core Interactive Scripting Engine", level: "96%", iconText: "JS", border: "border-pink-500/30", glow: "hover:shadow-[0_0_20px_rgba(236,72,153,0.2)]" },
-  
-  // Backend
-  { name: "Node.js", category: "BACKEND", type: "Event-Driven Runtime Architecture", level: "92%", iconText: "ND", border: "border-cyan-500/30", glow: "hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]" },
-  { name: "REST APIs", category: "BACKEND", type: "Microservices & Endpoints Design", level: "95%", iconText: "RA", border: "border-cyan-500/30", glow: "hover:shadow-[0_0_20px_rgba(6,182,212,0.2)]" },
-
-  // Database
-  { name: "PostgreSQL", category: "DATABASE", type: "Relational Database Modeling & SQL", level: "88%", iconText: "PG", border: "border-purple-500/30", glow: "hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]" },
-
-  // AI & Automation
-  { name: "AI Agents", category: "AI_AUTOMATION", type: "Autonomous Multi-Agent Orchestration", level: "94%", iconText: "AI", border: "border-amber-500/30", glow: "hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]" },
-  { name: "Workflow Automation", category: "AI_AUTOMATION", type: "End-to-End Process Pipeline Leverage", level: "96%", iconText: "WA", border: "border-amber-500/30", glow: "hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]" },
-  { name: "LLM Integrations", category: "AI_AUTOMATION", type: "OpenAI, Claude & Custom Prompt Pipelines", level: "92%", iconText: "LL", border: "border-amber-500/30", glow: "hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]" },
-  { name: "n8n", category: "AI_AUTOMATION", type: "Self-Hosted Workflow Automation Engine", level: "95%", iconText: "N8", border: "border-amber-500/30", glow: "hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]" },
-
-  // Tools
-  { name: "Git & GitHub", category: "TOOLS", type: "Version Control & CI/CD Pipelines", level: "94%", iconText: "GH", border: "border-emerald-500/30", glow: "hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]" },
-  { name: "Figma", category: "TOOLS", type: "UI/UX Prototyping & Design Systems", level: "90%", iconText: "FG", border: "border-emerald-500/30", glow: "hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]" },
-  { name: "Vercel", category: "TOOLS", type: "Edge Deployment & Infrastructure", level: "96%", iconText: "VC", border: "border-emerald-500/30", glow: "hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]" }
-];
-
 export default function Chapter5Arsenal() {
-  const [selectedCategory, setSelectedCategory] = useState("ALL");
-
-  const filteredModules = selectedCategory === "ALL" 
-    ? techModules 
-    : techModules.filter(m => m.category === selectedCategory);
+  const [activeTab, setActiveTab] = useState(0);
+  const [activeNode, setActiveNode] = useState('all');
 
   return (
     <section id="chapter-5" className="min-h-screen w-full py-28 px-6 md:px-12 relative z-10 flex flex-col justify-center">
@@ -78,115 +86,153 @@ export default function Chapter5Arsenal() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-14 md:mb-18"
+          className="mb-16 md:mb-20"
         >
           <div className="flex items-center gap-3 mb-4 font-mono text-cyan-400 text-sm tracking-widest uppercase">
             <span className="w-8 h-[1px] bg-cyan-400" />
             <span>CHAPTER 5</span>
           </div>
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-display font-bold text-white tracking-tight leading-tight max-w-4xl">
-            Technology <span className="text-gradient">Arsenal</span>.
+            The Technology <span className="text-gradient">Ecosystem</span>.
           </h2>
           <p className="mt-6 text-lg sm:text-xl text-muted-foreground font-light max-w-3xl leading-relaxed">
-            I don&apos;t treat languages as buzzwords; I treat them as specialized weaponry in an engineering arsenal. Each tool here has been battle-tested in real production environments and client deployments.
+            I do not treat technologies as isolated static logos. I build connected ecosystems where frontend interfaces, backend APIs, relational databases, and autonomous AI agents continuously communicate in unison.
           </p>
         </motion.div>
 
-        {/* HUD Category Filter Bar */}
-        <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-12 pb-6 border-b border-white/10">
-          {arsenalCategories.map(cat => {
-            const isSelected = selectedCategory === cat.id;
+        {/* Floating Connected Technology Ecosystem Visualizer */}
+        <div className="mb-16 p-6 sm:p-10 rounded-3xl bg-gradient-to-b from-black/80 to-white/[0.02] border border-white/15 relative overflow-hidden backdrop-blur-xl shadow-2xl">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10 font-mono text-xs text-muted-foreground">
+            <div className="flex items-center gap-2 text-cyan-400 font-bold">
+              <FiActivity className="animate-pulse" />
+              <span>INTERACTIVE CONNECTED ECOSYSTEM MAP</span>
+            </div>
+            <span>CLICK NODES TO HIGHLIGHT DATA STREAMS</span>
+          </div>
+
+          {/* Connected Ecosystem Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+            {ecosystemNodes.map((node, nIdx) => {
+              const isSelected = activeNode === node.id || activeNode === 'all';
+              return (
+                <motion.div
+                  key={node.id}
+                  onClick={() => setActiveNode(activeNode === node.id ? 'all' : node.id)}
+                  whileHover={{ scale: 1.04, y: -4 }}
+                  className={`cursor-pointer p-6 rounded-2xl bg-gradient-to-br ${node.color} bg-black/60 border backdrop-blur-md transition-all relative overflow-hidden shadow-lg ${
+                    isSelected ? 'opacity-100 shadow-[0_0_25px_rgba(6,182,212,0.2)]' : 'opacity-40 grayscale hover:grayscale-0'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                      {node.icon}
+                    </div>
+                    <span className="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                      NODE 0{nIdx + 1}
+                    </span>
+                  </div>
+
+                  <h4 className="text-lg font-display font-bold text-white mb-3 flex items-center justify-between">
+                    <span>{node.title}</span>
+                    <FiZap className="text-amber-400 w-4 h-4 animate-pulse" />
+                  </h4>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {node.skills.map((s, sIdx) => (
+                      <span key={sIdx} className="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/90 border border-white/5">
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Animated Connecting Data Stream Banner */}
+          <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted-foreground">
+            <div className="flex items-center gap-2 text-cyan-300">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+              <span>DATA FLOW // FRONTEND &lt;---&gt; API &lt;---&gt; POSTGRES &lt;---&gt; n8n AGENTS</span>
+            </div>
+            <button 
+              onClick={() => setActiveNode('all')}
+              className="text-cyan-400 hover:text-white transition-colors underline underline-offset-4"
+            >
+              Reset Ecosystem View
+            </button>
+          </div>
+        </div>
+
+        {/* Category Selector Tabs */}
+        <div className="flex flex-wrap gap-3 mb-10 pb-4 border-b border-white/10 overflow-x-auto">
+          {arsenalCategories.map((cat, idx) => {
+            const isActive = activeTab === idx;
             return (
               <button
                 key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2.5 rounded-xl font-mono text-xs md:text-sm transition-all duration-300 flex items-center gap-2.5 border backdrop-blur-md ${
-                  isSelected
-                    ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border-cyan-400 text-white shadow-[0_0_15px_rgba(6,182,212,0.25)] font-semibold'
-                    : 'bg-white/[0.03] border-white/10 text-muted-foreground hover:text-white hover:border-white/30'
+                onClick={() => setActiveTab(idx)}
+                className={`px-5 py-3 rounded-2xl font-mono text-xs tracking-wider uppercase transition-all flex items-center gap-3.5 shrink-0 ${
+                  isActive
+                    ? 'bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-400 text-cyan-300 font-bold shadow-[0_0_20px_rgba(6,182,212,0.25)]'
+                    : 'bg-white/[0.03] border border-white/5 text-muted-foreground hover:text-white hover:bg-white/[0.06]'
                 }`}
               >
                 {cat.icon}
-                <span>{cat.name}</span>
+                <span>{cat.title}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Interactive HUD Arsenal Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence>
-            {filteredModules.map((item, idx) => (
+        {/* Selected Category Skill Mastery Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            {arsenalCategories[activeTab].skills.map((skill, sIdx) => (
               <motion.div
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.35, delay: idx * 0.04 }}
-                key={item.name}
-                className={`group rounded-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.01] border ${item.border} p-6 transition-all duration-300 ${item.glow} backdrop-blur-xl flex flex-col justify-between relative overflow-hidden`}
+                key={skill.name}
+                initial={{ opacity: 0, x: -15 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: sIdx * 0.08 }}
+                className="p-6 rounded-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/10 hover:border-cyan-500/40 transition-all backdrop-blur-xl group"
               >
-                {/* Background Corner HUD Accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-white/10 to-transparent rounded-bl-3xl pointer-events-none opacity-40 group-hover:opacity-80 transition-opacity" />
-
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    {/* Tech Monogram Badge */}
-                    <div className="w-12 h-12 rounded-xl bg-black/40 border border-white/15 flex items-center justify-center font-mono font-extrabold text-lg text-white group-hover:border-cyan-400 group-hover:scale-105 transition-all shadow-inner">
-                      {item.iconText}
-                    </div>
-
-                    {/* Status Pill */}
-                    <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-mono text-[10px] tracking-widest text-muted-foreground group-hover:text-cyan-300 transition-colors">
-                      {item.category}
-                    </span>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-2.5">
+                    <FiCheckCircle className="text-cyan-400 w-4 h-4 shrink-0" />
+                    <h4 className="text-lg font-display font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {skill.name}
+                    </h4>
                   </div>
-
-                  <h4 className="text-xl font-display font-bold text-white mb-1 group-hover:text-gradient transition-colors">
-                    {item.name}
-                  </h4>
-                  <p className="text-xs font-light text-muted-foreground font-mono leading-relaxed mb-6">
-                    {item.type}
-                  </p>
+                  <span className="font-mono text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-lg border border-cyan-500/20">
+                    {skill.level}%
+                  </span>
                 </div>
 
+                <p className="text-sm font-light text-muted-foreground mb-4 font-sans">
+                  {skill.details}
+                </p>
+
                 {/* Animated Proficiency Power Bar */}
-                <div className="pt-4 border-t border-white/5">
-                  <div className="flex items-center justify-between text-xs font-mono mb-2">
-                    <span className="text-muted-foreground flex items-center gap-1.5">
-                      <FiTerminal className="w-3 h-3 text-cyan-400" />
-                      <span>PROFICIENCY</span>
-                    </span>
-                    <span className="text-cyan-400 font-semibold">{item.level}</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: item.level }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.2 }}
-                      className="h-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full"
-                    />
-                  </div>
+                <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                    className="h-full bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.8)]"
+                  />
                 </div>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* Terminal Execution Footer Notice */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-14 p-6 rounded-2xl bg-black/50 border border-white/10 font-mono text-xs text-muted-foreground flex items-center justify-between flex-wrap gap-4"
-        >
-          <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-white">SYSTEM STATUS: ALL ARCHITECTURAL MODULES OPERATIONAL & READY FOR DEPLOYMENT.</span>
-          </div>
-          <span>// CONTINUOUSLY EVOLVING</span>
-        </motion.div>
+          </motion.div>
+        </AnimatePresence>
 
       </div>
     </section>
