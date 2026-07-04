@@ -1,23 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FiCode, FiCpu, FiGitCommit, FiLayers, FiTerminal, FiZap } from 'react-icons/fi';
+import { motion } from 'framer-motion';
+import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
 
-const titles = [
-  "Full Stack Developer",
-  "AI Automation Builder",
-  "Product Developer",
-  "Problem Solver"
-];
-
-const floatingCodeSnippets = [
-  { text: "const agent = new AIWorkflow({ model: 'gpt-4o', mode: 'autonomous' });", top: "16%", left: "4%", depth: 20 },
-  { text: "deployPipeline({ target: 'production', edge: true, latency: '<10ms' });", top: "28%", right: "6%", depth: -25 },
-  { text: "await n8n.triggerWebhook({ client: 'iTeachTrading', status: 'LIVE' });", bottom: "22%", left: "6%", depth: 15 },
-  { text: "SELECT * FROM scalable_products WHERE impact = 'MAXIMUM';", bottom: "32%", right: "5%", depth: -18 },
-];
-
-// Custom Magnetic Button Component for Awwwards-level physics
+// Custom Magnetic Button Component for luxury physics
 function MagneticButton({ children, onClick, className }: { children: React.ReactNode; onClick?: () => void; className?: string }) {
   const buttonRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -27,7 +13,7 @@ function MagneticButton({ children, onClick, className }: { children: React.Reac
     const { height, width, left, top } = buttonRef.current!.getBoundingClientRect();
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
-    setPosition({ x: middleX * 0.35, y: middleY * 0.35 });
+    setPosition({ x: middleX * 0.3, y: middleY * 0.3 });
   };
 
   const handleMouseLeave = () => {
@@ -51,14 +37,9 @@ function MagneticButton({ children, onClick, className }: { children: React.Reac
 }
 
 export default function Hero() {
-  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
-    }, 2800);
-
     const handleMouseMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window;
       const x = (e.clientX - innerWidth / 2) / innerWidth;
@@ -68,7 +49,6 @@ export default function Hero() {
 
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
-      clearInterval(intervalId);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
@@ -81,173 +61,87 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="min-h-screen w-full flex items-center justify-center pt-24 pb-16 px-6 md:px-12 relative overflow-hidden">
-      {/* Ambient Parallax Cinematic Glows */}
+    <section id="hero" className="min-h-screen w-full flex items-center justify-center pt-28 pb-20 px-6 md:px-12 relative overflow-hidden">
+      {/* Subtle Ethereal Monochrome Glows */}
       <motion.div
-        animate={{ x: mousePos.x * -60, y: mousePos.y * -60 }}
+        animate={{ x: mousePos.x * -40, y: mousePos.y * -40 }}
         transition={{ type: "spring", damping: 30, stiffness: 50 }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-cyan-500/15 via-purple-500/10 to-pink-500/15 rounded-full blur-[140px] pointer-events-none -z-10"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-white/[0.06] via-zinc-500/[0.05] to-transparent rounded-full blur-[160px] pointer-events-none -z-10"
       />
 
-      {/* Floating Background Elements with 3D Mouse Parallax */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10 hidden lg:block">
-        {floatingCodeSnippets.map((snippet, idx) => (
-          <motion.div
-            key={idx}
-            animate={{ 
-              x: mousePos.x * snippet.depth * 3,
-              y: mousePos.y * snippet.depth * 3,
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{ 
-              x: { type: "spring", damping: 25, stiffness: 60 },
-              y: { type: "spring", damping: 25, stiffness: 60 },
-              opacity: { duration: 6 + idx * 2, repeat: Infinity, ease: "easeInOut" }
-            }}
-            style={{ 
-              top: snippet.top, 
-              left: snippet.left, 
-              right: snippet.right, 
-              bottom: snippet.bottom 
-            }}
-            className="absolute max-w-xs bg-black/50 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-xl font-mono text-xs text-cyan-300/80 shadow-[0_0_25px_rgba(6,182,212,0.15)] flex items-center gap-2.5"
-          >
-            <FiCode className="text-cyan-400 shrink-0" />
-            <span className="truncate">{snippet.text}</span>
-          </motion.div>
-        ))}
-
-        {/* Parallax AI Nodes */}
-        <motion.div
-          animate={{ x: mousePos.x * 50, y: mousePos.y * 50, rotate: 360 }}
-          transition={{ rotate: { duration: 30, repeat: Infinity, ease: "linear" }, x: { type: "spring" }, y: { type: "spring" } }}
-          className="absolute top-1/3 left-[12%] w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-transparent border border-purple-500/30 backdrop-blur-md flex items-center justify-center shadow-lg"
-        >
-          <FiCpu className="w-8 h-8 text-purple-400" />
-        </motion.div>
-
-        <motion.div
-          animate={{ x: mousePos.x * -40, y: mousePos.y * -40, rotate: -360 }}
-          transition={{ rotate: { duration: 25, repeat: Infinity, ease: "linear" }, x: { type: "spring" }, y: { type: "spring" } }}
-          className="absolute top-1/2 right-[12%] w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500/20 to-transparent border border-cyan-500/30 backdrop-blur-md flex items-center justify-center shadow-lg"
-        >
-          <FiGitCommit className="w-6 h-6 text-cyan-400" />
-        </motion.div>
-
-        <motion.div
-          animate={{ x: mousePos.x * 30, y: mousePos.y * 30 }}
-          transition={{ type: "spring", damping: 20 }}
-          className="absolute bottom-1/4 left-[20%] w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/20 to-transparent border border-pink-500/30 backdrop-blur-md flex items-center justify-center shadow-lg"
-        >
-          <FiLayers className="w-6 h-6 text-pink-400" />
-        </motion.div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9, filter: "blur(5px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs md:text-sm mb-8 shadow-[0_0_15px_rgba(6,182,212,0.2)]"
-        >
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-          <span>CHAPTER 0 // THE ARCHITECT</span>
-        </motion.div>
-
-        {/* Staggered Blur-to-Focus Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 35, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-extrabold tracking-tight text-white mb-6 leading-none"
-        >
-          Rayampalli <span className="text-gradient">Abhishek</span>
-        </motion.h1>
-
-        {/* Animated Titles */}
+      {/* Main Minimalist Center-Stage Content */}
+      <div className="max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
+        
+        {/* Sleek Monochrome Super-Title Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="h-10 md:h-14 mb-8 flex items-center justify-center w-full"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-zinc-300 font-mono text-xs uppercase tracking-widest mb-10 shadow-sm backdrop-blur-md"
         >
-          <div className="text-xl sm:text-2xl md:text-3xl font-semibold text-muted-foreground flex items-center justify-center gap-2 md:gap-3">
-            <span>I am a</span>
-            <span className="text-gradient font-display font-bold relative inline-flex justify-center min-w-[260px] md:min-w-[340px]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentTitleIndex}
-                  initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -15, filter: "blur(4px)" }}
-                  transition={{ duration: 0.35 }}
-                  className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap text-center drop-shadow-[0_0_15px_rgba(236,72,153,0.3)]"
-                >
-                  {titles[currentTitleIndex]}
-                </motion.span>
-              </AnimatePresence>
-              <span className="invisible">{titles[0]}</span>
-            </span>
-          </div>
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span>Full Stack Developer &amp; AI Automation Builder</span>
         </motion.div>
 
-        {/* Narrative Headline with Staggered Word Easing */}
+        {/* Massive Pristine Typography */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          className="text-6xl sm:text-8xl md:text-9xl font-display font-bold tracking-tight text-white mb-8 leading-[0.95]"
+        >
+          Rayampalli <span className="text-gradient">Abhishek.</span>
+        </motion.h1>
+
+        {/* Confident Product Engineering Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-xl md:text-3xl font-light text-white/90 max-w-3xl mb-12 leading-relaxed font-display"
+          transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+          className="text-lg sm:text-xl md:text-2xl font-light text-zinc-400 max-w-3xl mb-14 leading-relaxed font-sans"
         >
-          &ldquo;I don&apos;t just build applications.{' '}
-          <span className="font-medium text-gradient">I build products, automate systems, and turn ideas into businesses.</span>&rdquo;
+          Engineering high-performance web applications, autonomous AI workflows, and scalable digital products with obsessive attention to detail and business ROI.
         </motion.p>
 
-        {/* Magnetic CTA Buttons */}
+        {/* Minimalist Monochrome Actions */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-5 items-center mb-20"
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="flex flex-wrap justify-center gap-4 items-center mb-20"
         >
           <MagneticButton 
-            onClick={() => scrollToSection('chapter-1')}
-            className="bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white hover:opacity-95 transition-all h-14 px-8 text-base font-semibold shadow-[0_0_30px_rgba(6,182,212,0.35)] hover:shadow-[0_0_45px_rgba(236,72,153,0.5)] border border-white/20 rounded-2xl"
+            onClick={() => scrollToSection('products')}
+            className="bg-white text-black hover:bg-zinc-200 transition-all h-13 px-8 text-sm font-semibold rounded-full shadow-[0_0_30px_rgba(255,255,255,0.15)] flex items-center gap-2"
           >
-            Explore My Journey
+            <span>Explore Work</span>
+            <FiArrowRight className="w-4 h-4" />
           </MagneticButton>
 
           <MagneticButton 
-            onClick={() => scrollToSection('chapter-3')}
-            className="h-14 px-8 text-base font-medium border-white/20 hover:bg-white/10 hover:border-white/40 text-white backdrop-blur-md transition-all rounded-2xl bg-white/[0.04]"
+            onClick={() => scrollToSection('contact')}
+            className="h-13 px-8 text-sm font-medium border-white/15 hover:bg-white/[0.08] hover:border-white/30 text-white backdrop-blur-md transition-all rounded-full bg-white/[0.03]"
           >
-            View Projects
-          </MagneticButton>
-
-          <MagneticButton 
-            onClick={() => scrollToSection('chapter-contact')}
-            className="h-14 px-8 text-base font-medium text-cyan-400 hover:text-cyan-300 hover:bg-cyan-500/10 transition-all rounded-2xl bg-transparent border border-transparent hover:border-cyan-500/30"
-          >
-            Let&apos;s Build Something
+            Get in Touch
           </MagneticButton>
         </motion.div>
 
-        {/* Animated Scroll Indicator with Parallax Easing */}
+        {/* Refined Social Communication Links */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          onClick={() => scrollToSection('chapter-1')}
-          className="cursor-pointer flex flex-col items-center gap-2.5 group text-muted-foreground hover:text-cyan-400 transition-colors"
+          transition={{ duration: 1, delay: 0.6 }}
+          className="flex items-center gap-6 text-zinc-500 pt-8 border-t border-white/[0.06] w-full max-w-xs justify-center"
         >
-          <span className="text-xs uppercase tracking-[0.25em] font-mono group-hover:tracking-[0.3em] transition-all">Begin The Story</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-6 h-10 rounded-full border-2 border-current flex justify-center pt-2 p-1"
-          >
-            <motion.div className="w-1.5 h-1.5 rounded-full bg-current" />
-          </motion.div>
+          <a href="https://github.com/Abhi-451" target="_blank" rel="noreferrer" className="hover:text-white transition-colors p-2">
+            <FiGithub className="w-5 h-5" />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors p-2">
+            <FiLinkedin className="w-5 h-5" />
+          </a>
+          <a href="mailto:abhishekrayampalli@gmail.com" className="hover:text-white transition-colors p-2">
+            <FiMail className="w-5 h-5" />
+          </a>
         </motion.div>
       </div>
     </section>
