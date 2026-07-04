@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const navItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: '01 // Origin', id: 'chapter-1', href: '#chapter-1' },
+  { name: '02 // Evolution', id: 'chapter-2', href: '#chapter-2' },
+  { name: '03 // Products', id: 'chapter-3', href: '#chapter-3' },
+  { name: '04 // Client Work', id: 'chapter-4', href: '#chapter-4' },
+  { name: '05 // Arsenal', id: 'chapter-5', href: '#chapter-5' },
+  { name: '06 // Mindset', id: 'chapter-6', href: '#chapter-6' },
+  { name: '07 // Horizon', id: 'chapter-7', href: '#chapter-7' },
 ];
 
 export default function Navbar() {
@@ -17,10 +19,10 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      const sections = navItems.map(item => item.name.toLowerCase());
-      const scrollPosition = window.scrollY + 200;
+      const sections = navItems.map(item => item.id);
+      const scrollPosition = window.scrollY + 250;
       
-      for (const section of sections.reverse()) {
+      for (const section of [...sections].reverse()) {
         const element = document.getElementById(section);
         if (element && scrollPosition >= element.offsetTop) {
           setActive(section);
@@ -39,26 +41,33 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? 'py-4 bg-background/80 backdrop-blur-lg border-b border-white/10 shadow-lg shadow-black/50' : 'py-6 bg-transparent'
+        scrolled ? 'py-4 bg-black/80 backdrop-blur-lg border-b border-white/10 shadow-lg shadow-black/50' : 'py-6 bg-transparent'
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-        <a href="#" className="text-xl font-display font-bold text-white relative group">
-          R.A
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-cyan-400 transition-all group-hover:w-full"></span>
+        <a 
+          href="#hero" 
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="text-xl font-display font-black text-white relative group flex items-center gap-2"
+        >
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <span>R.A // BUILDER</span>
         </a>
         
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navItems.map((item) => (
             <a
-              key={item.name}
+              key={item.id}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-white ${
-                active === item.name.toLowerCase() ? 'text-white' : 'text-muted-foreground'
+              className={`font-mono text-xs tracking-wider uppercase transition-colors hover:text-cyan-400 ${
+                active === item.id ? 'text-cyan-400 font-bold' : 'text-muted-foreground'
               }`}
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById(item.name.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               {item.name}
@@ -69,11 +78,11 @@ export default function Navbar() {
         <button 
           onClick={(e) => {
             e.preventDefault();
-            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('chapter-contact')?.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="hidden md:inline-flex px-4 py-2 rounded-md bg-white/5  text-sm font-medium text-white hover:bg-white/10 transition-all hover:border-cyan-500/50"
+          className="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500/20 to-purple-500/20 border border-cyan-400/50 text-xs font-mono tracking-wider uppercase text-cyan-300 hover:bg-cyan-500 hover:text-black font-semibold transition-all shadow-[0_0_15px_rgba(6,182,212,0.2)]"
         >
-          Let's Talk
+          Let&apos;s Build
         </button>
       </div>
     </motion.header>
